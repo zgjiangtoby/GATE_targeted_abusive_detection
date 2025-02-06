@@ -7,7 +7,7 @@
 --------
 Note: The total # of overall is 184,506 in May, but 2,130,344 found on the [Social Media Abuse Dashboard](https://demos.gate.ac.uk/fcdo/platforms/theresa_may/)
 
-| Data           | # of overall | # of abusive  | # of detected  |  # of matching  |  Matching ratio  |
+| Data           | # of overall | # of abusive  | # of detected  |  # of matching  |  Matching ratio (%)  |
 | -----------    | -----------  | ----------- | ----------- | ----------- | ----------- |
 | Yulia-2b       |    46,590    |   105       |   27,821    |      104    |    0.3738   |
 | Yulia-8b       |    46,590    |   105       |   15,493    |      97     |  **0.6261** |
