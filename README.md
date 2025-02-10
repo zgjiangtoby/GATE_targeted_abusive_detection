@@ -18,7 +18,7 @@ Note: The total # of overall is 184,506 in May, but 2,130,344 found on the [Soci
 | May-8b         |    184,506   |  77,886     |   23,847    |    4,675    | **19.6041** |
 
 --------
-2025/02/07
+2025/02/10
 
 Using 8b model to infer overall dataset on Yulia, Vladimir, Theretha, Maria, and Liz. Each category is infered per tweet, and the targeted abusive prompt is included. All inferences are maded on two RTX-4090 GPU.
 
