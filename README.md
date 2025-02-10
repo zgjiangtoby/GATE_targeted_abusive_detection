@@ -26,6 +26,6 @@ Using 8b model to infer overall dataset on Yulia, Vladimir, Theretha, Maria, and
 | -----------    | -----------  |
 | Yulia |  12:59:46 |
 | Vladimir | 2:58:15 |
-| Theretha| |
-| Maria | |
-| Liz   |  |
+| Theretha| 58:39:40 |
+| Maria | ongoing |
+| Liz   | ongoing |
