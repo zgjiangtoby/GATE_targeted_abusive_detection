@@ -29,3 +29,15 @@ Using 8b model to infer overall dataset on Yulia, Vladimir, Theretha, Maria, and
 | Theretha| 58:39:40 |
 | Maria | 133:57:48 |
 | Liz   | 142:04:25 |
+
+--------
+2025/03/10
+Frist around annotation
+
+| Data    |  annotater1   | annotater2 | Cohen's Kappa |
+| -----------    | -----------  |  -----------    | -----------  |
+| Yulia | lyz | ljy | 0.2933 |
+| Vladimir | xxm | lyz | 0.1343 |
+| Theretha| xxm | ljy | 0.2161 |
+| Maria | ljy | xxm | 0.3769 |
+| Liz   | lyz | ljy | 0.3548 |
