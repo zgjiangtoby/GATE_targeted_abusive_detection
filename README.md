@@ -41,3 +41,15 @@ Frist around annotation
 | Theretha| xxm | ljy | 0.2161 |
 | Maria | ljy | xxm | 0.3769 |
 | Liz   | lyz | ljy | 0.3548 |
+
+--------
+2025/03/17
+Second around annotation
+# note: The uncertain instances are removed from the annotation sets.
+| Data    |  annotater1   | annotater2 | Cohen's Kappa |
+| -----------    | -----------  |  -----------    | -----------  |
+| Yulia | lyz | ljy | 0.6350 |
+| Vladimir | xxm | ljy | 0.5537 |
+| Theretha| wth | ljy | 0.5201 |
+| Maria | wth | xxm | 0.5938 |
+| Liz   | wth | xxm | 0.4372 |
