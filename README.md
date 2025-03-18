@@ -45,7 +45,7 @@ Frist around annotation
 --------
 2025/03/17
 Second around annotation
-# note: The uncertain instances are removed from the annotation sets.
+### note: The uncertain instances are removed from the annotation sets.
 | Data    |  annotater1   | annotater2 | Cohen's Kappa |
 | -----------    | -----------  |  -----------    | -----------  |
 | Yulia | lyz | ljy | 0.6350 |
@@ -53,3 +53,15 @@ Second around annotation
 | Theretha| wth | ljy | 0.5201 |
 | Maria | wth | xxm | 0.5938 |
 | Liz   | wth | xxm | 0.4372 |
+
+--------
+2025/03/25
+Official annotation (2k per target)
+
+| Data    |  annotater1   | annotater2 | Cohen's Kappa |
+| -----------    | -----------  |  -----------    | -----------  |
+| Yulia | lyz | ljy |  |
+| Vladimir | xxm | lyz |  |
+| Theretha| ljy | lyz | |
+| Maria | ljy | xxm |  |
+| Liz   | wth | xxm |  |
