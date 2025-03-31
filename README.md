@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/285d3292-3cf1-4573-866e-582ea321b28e)# GATE_targeted_abusive_detection
+# GATE_targeted_abusive_detection
 
 --------
 2025/02/05
@@ -78,4 +78,14 @@ Label statistics
 | Yulia |	1330 |	603	|27 |	2	| 1	| 1963 |
 | TOTAL| 6708	| 2878 | 292 |	47 |	6 |	9931 |
 
+Human vs Machine accuracies
 
+| Data | Binary | Multi |
+| -----------    | -----------  |  -----------    |
+|Liz |  80.51 |  39.98 |
+|Maria | 89.63 | 51.17 |
+|May | 94.19 | 52.40 |
+|Vladimir | 91.09 | 46.58 |
+|Yulia | 78.45 | 38.00 |
+
+*note: Binary means the accuracy is calculated by only consider abusive and non-abusive posts. Multi denotes the accuracy of multi-label classification, in which the machine predicted label is matched with at least one human annotated label. Non-abusive posts are removed in Multi.
