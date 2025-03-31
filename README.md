@@ -1,4 +1,4 @@
-# GATE_targeted_abusive_detection
+![image](https://github.com/user-attachments/assets/285d3292-3cf1-4573-866e-582ea321b28e)# GATE_targeted_abusive_detection
 
 --------
 2025/02/05
@@ -65,3 +65,17 @@ Official annotation (2k per target)
 | Theretha| ljy | lyz | 0.7631 |
 | Maria | ljy | xxm | 0.7277 |
 | Liz   | wth | xxm | 0.6699 |
+
+
+Label statistics
+
+|     |  1-label   | 2-labels | 3-labels | 4-labels |  5-labels  |  total |
+| -----------    | -----------  |  -----------    | -----------  |  -----------  |  -----------  | -----------  |
+| Liz |1139	 | 762 | 84	| 11	| 0  | 1996 |  
+| Maria | 1376 |	545 |	57 | 9	| 0 | 1987 |
+| May |	1503 | 472 | 18 |	4	| 0 |	1997 |
+| Vladimir	| 1360 | 496 | 106 | 21 |	5	| 1988 |
+| Yulia |	1330 |	603	|27 |	2	| 1	| 1963 |
+| TOTAL| 6708	| 2878 | 292 |	47 |	6 |	9931 |
+
+
