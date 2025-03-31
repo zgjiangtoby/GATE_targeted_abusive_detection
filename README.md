@@ -55,13 +55,13 @@ Second around annotation
 | Liz   | wth | xxm | 0.4372 |
 
 --------
-2025/03/25
+2025/03/31
 Official annotation (2k per target)
 
 | Data    |  annotater1   | annotater2 | Cohen's Kappa |
 | -----------    | -----------  |  -----------    | -----------  |
-| Yulia | lyz | ljy |  |
-| Vladimir | xxm | lyz |  |
-| Theretha| ljy | lyz | |
-| Maria | ljy | xxm |  |
-| Liz   | wth | xxm |  |
+| Yulia | lyz | ljy | 0.6637 |
+| Vladimir | xxm | lyz | 0.7235 |
+| Theretha| ljy | lyz | 0.7631 |
+| Maria | ljy | xxm | 0.7277 |
+| Liz   | wth | xxm | 0.6699 |
