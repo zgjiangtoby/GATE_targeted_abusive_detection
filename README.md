@@ -89,3 +89,17 @@ Human vs Machine accuracies
 |Yulia | 78.45 | 38.00 |
 
 *note: Binary means the accuracy is calculated by only consider abusive and non-abusive posts. Multi denotes the accuracy of multi-label classification, in which the machine predicted label is matched with at least one human annotated label. Non-abusive posts are removed in Multi.
+
+
+2025/04/16
+
+Label statistics
+
+| Name   | death_threat | sexual_assault | Sexual_explicit | physical_harm | radiation_of_threats | attacks_on_credibility | misogynistic | homophobic | religious | political_sectarian | racist | general | non-abusive | no-target | unidentified-targets | Total |
+|--------|-------------:|---------------:|----------------:|--------------:|---------------------:|-----------------------:|-------------:|-----------:|----------:|-------------------:|-------:|--------:|------------:|----------:|---------------------:|-------:|
+| Liz    | 13           | 5              | 9               | 3             | 1                    | 463                    | 12           | 2          | 4         | 40                 | 29     | 273     | 1125        | 6         | 11                    | 1996         |
+| Maria  | 12           | 13             | 41              | 16            | 2                    | 229                    | 13           | 9          | 1         | 0                  | 10     | 387     | 1213        | 8         | 32                   | 1986         |    
+| May    | 18           | 4              | 26              | 3             |0                     | 280                    | 29           | 4          | 25        | 47                 | 20     | 403     | 1122        | 0         | 16                   | 1997         |
+| Vala   | 91           | 13             | 63              | 22            | 85                   | 41                     | 39           | 15         | 4         | 4                  | 52     | 384     | 1085        | 237       | 43                    | 2178         |
+| Yulia  | 41           | 15             | 32              | 6             | 15                   | 181                    | 19           | 2          | 3         | 16                 | 42     | 321     | 1177        | 2         | 91                    | 1963         |
+| Total  | 175          | 50             | 171             | 50            | 103                  | 1194                   | 112          | 32         | 37        | 107                | 153    | 1768    | 5722        | 253       | 193                   | 10120        |
