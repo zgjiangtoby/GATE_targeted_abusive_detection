@@ -103,3 +103,10 @@ Label statistics
 | Vala   | 91           | 13             | 63              | 22            | 85                   | 41                     | 39           | 15         | 4         | 4                  | 52     | 384     | 1085        | 237       | 43                    | 2178         |
 | Yulia  | 41           | 15             | 32              | 6             | 15                   | 181                    | 19           | 2          | 3         | 16                 | 42     | 321     | 1177        | 2         | 91                    | 1963         |
 | Total  | 175          | 50             | 171             | 50            | 103                  | 1194                   | 112          | 32         | 37        | 107                | 153    | 1768    | 5722        | 253       | 193                   | 10120        |
+
+Multiclass classification
+* We conduct a multiclass classification with BERT. Train/val/test split with ratio 8:1:1
+
+| Model |val_acc | val_auc | val_f1 | test_acc | test_auc | test_f1 |
+|-------|-------:|--------:|-------:|---------:|---------:|--------:|
+| BERT  | 70.85  |  87.03  |  50.96 |  70.95   |  85.86   |   43.97 |
