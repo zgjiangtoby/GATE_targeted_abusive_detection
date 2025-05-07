@@ -110,3 +110,46 @@ Multiclass classification
 | Model |val_acc | val_auc | val_f1 | test_acc | test_auc | test_f1 |
 |-------|-------:|--------:|-------:|---------:|---------:|--------:|
 | BERT  | 70.85  |  87.03  |  50.96 |  70.95   |  85.86   |   43.97 |
+
+
+--------
+2025/05/07
+Dataset statistics
+| Category                   | Original     | Train      | Test      |
+|----------------------------|--------------|------------|-----------|
+| non-abusive                | 5722         | 1800       | 200       |
+| religious                  | 2451         | 2206       | 245       |
+| attacks_on_credibility     | 2425         | 2182       | 243       |
+| radiation_of_threats       | 2311         | 2080       | 231       |
+| physical_harm              | 2301         | 2071       | 230       |
+| death_threat               | 2288         | 2059       | 229       |
+| homophobic                 | 1925         | 1732       | 193       |
+| general                    | 1768         | 1591       | 177       |
+| misogynistic               | 1625         | 1462       | 163       |
+| no-target                  | 1493         | 1344       | 149       |
+| sexual_explicit            | 1492         | 1343       | 149       |
+| political_sectarian        | 1321         | 1189       | 132       |
+| racist                     | 1161         | 1045       | 116       |
+| sexual_assault             | 1115         | 1004       | 111       |
+
+### Note: Left columns show deberta-v3-large fine-tuning results; right columns show gemma-3-4b-it instruction-tuning results.
+| deberta-v3-large       | Precision | Recall | F1-Score | Support |          | gemma3-4b-it           | Precision | Recall | F1-Score | Support |
+|------------------------|-----------|--------|----------|---------|----------|------------------------|-----------|--------|----------|---------|
+| attacks_on_credibility | 0.8082    | 0.7284 | 0.7662   | 243     |          | attacks_on_credibility | 0.8186    | 0.7243 | 0.7686   | 243     |
+| death_threat           | 0.9389    | 0.9389 | 0.9389   | 229     |          | death_threat           | 0.9237    | 0.9520 | 0.9376   | 229     |
+| general                | 0.6580    | 0.7175 | 0.6865   | 177     |          | general                | 0.6250    | 0.6497 | 0.6371   | 177     |
+| homophobic             | 0.9795    | 0.9896 | 0.9845   | 193     |          | homophobic             | 0.9795    | 0.9896 | 0.9845   | 193     |
+| misogynistic           | 0.9302    | 0.9816 | 0.9552   | 163     |          | misogynistic           | 0.9809    | 0.9448 | 0.9625   | 163     |
+| no-target              | 0.9524    | 0.9396 | 0.9459   | 149     |          | no-target              | 0.9444    | 0.9128 | 0.9283   | 149     |
+| non-abusive            | 0.7868    | 0.7750 | 0.7809   | 200     |          | non-abusive            | 0.7913    | 0.8150 | 0.8030   | 200     |
+| physical_harm          | 0.9824    | 0.9696 | 0.9759   | 230     |          | physical_harm          | 0.9868    | 0.9783 | 0.9825   | 230     |
+| political_sectarian    | 0.9333    | 0.9545 | 0.9438   | 132     |          | political_sectarian    | 0.9348    | 0.9773 | 0.9556   | 132     |
+| racist                 | 0.9483    | 0.9483 | 0.9483   | 116     |          | racist                 | 0.9483    | 0.9483 | 0.9483   | 116     |
+| radiation_of_threats   | 0.9620    | 0.9870 | 0.9744   | 231     |          | radiation_of_threats   | 0.9660    | 0.9827 | 0.9742   | 231     |
+| religious              | 0.9918    | 0.9918 | 0.9918   | 245     |          | religious              | 0.9919    | 0.9959 | 0.9939   | 245     |
+| sexual_assault         | 0.9720    | 0.9369 | 0.9541   | 111     |          | sexual_assault         | 0.9375    | 0.9459 | 0.9417   | 111     |
+| sexual_explicit        | 0.9463    | 0.9463 | 0.9463   | 149     |          | sexual_explicit        | 0.9226    | 0.9597 | 0.9408   | 149     |
+|                        |           |        |          |         |          |                        |           |        |          |         |
+| accuracy               | -         | -      | 0.9112   | 2568    |          | accuracy               | -         | -      | 0.9097   | 2568    |
+| macro avg              | 0.9136    | 0.9146 | 0.9138   | 2568    |          | macro avg              | 0.8501    | 0.8517 | 0.8506   | 2568    |
+| weighted avg           | 0.9116    | 0.9112 | 0.9110   | 2568    |          | weighted avg           | 0.9101    | 0.9097 | 0.9094   | 2568    |
