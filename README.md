@@ -114,7 +114,8 @@ Multiclass classification
 
 --------
 2025/05/07
-Dataset statistics
+
+### Dataset statistics
 | Category                   | Original     | Train      | Test      |
 |----------------------------|--------------|------------|-----------|
 | non-abusive                | 5722         | 1800       | 200       |
