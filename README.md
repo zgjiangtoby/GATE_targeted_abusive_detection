@@ -153,3 +153,16 @@ Dataset statistics
 | accuracy               | -         | -      | 0.9112   | 2568    |          | accuracy               | -         | -      | 0.9097   | 2568    |
 | macro avg              | 0.9136    | 0.9146 | 0.9138   | 2568    |          | macro avg              | 0.8501    | 0.8517 | 0.8506   | 2568    |
 | weighted avg           | 0.9116    | 0.9112 | 0.9110   | 2568    |          | weighted avg           | 0.9101    | 0.9097 | 0.9094   | 2568    |
+
+### confusion_matrix
+<table>
+  <tr>
+    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/deberta-v3-large.png" alt="图片1描述" width="600"></td>
+    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/gemma3-4b.png" alt="图片2描述" width="600"></td>
+  </tr>
+  <tr>
+    <td align="center">deberta-v3-large</td>
+    <td align="center">gemma3-4b-it</td>
+  </tr>
+</table>
+
