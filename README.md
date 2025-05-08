@@ -167,3 +167,12 @@ Multiclass classification
   </tr>
 </table>
 
+--------
+2025/05/07
+### L2D method，using xlm-roberta-base and Phi-3-mini-128k-instruct
+
+| Category               | Precision | Recall | F1-Score | Support |
+|------------------------|-----------|--------|----------|---------|
+| accuracy              | -         | -      | 0.83     | 2554    |
+| macro avg             | 0.85      | 0.84   | 0.84     | 2554    |
+| weighted avg          | 0.85      | 0.83   | 0.83     | 2554    |
