@@ -168,11 +168,17 @@ Multiclass classification
 </table>
 
 --------
-2025/05/07
-### L2D method，using xlm-roberta-base and Phi-3-mini-128k-instruct
+2025/05/09
+### L2D method
 
-| Category               | Precision | Recall | F1-Score | Support |
-|------------------------|-----------|--------|----------|---------|
-| accuracy              | -         | -      | 0.83     | 2554    |
-| macro avg             | 0.85      | 0.84   | 0.84     | 2554    |
-| weighted avg          | 0.85      | 0.83   | 0.83     | 2554    |
+- using xlm-roberta-base and Phi-3-mini-128k-instruct (k=30, n=8)
+- using deberta-v3-large and Phi-3-mini-128k-instruct (k=30, n=8)
+- using deberta-v3-large and gemma2-9b-it (k=30, n=8)
+
+| Metric         | XLM + Phi-3 | DeBERTa + Phi-3 | DeBERTa + Gemma2 |
+|----------------|------------|----------------|----------------|
+| Accuracy       | 0.83       | 0.82           | 0.87           |
+| Macro Avg      | 0.84       | 0.83           | 0.86           |
+| Weighted Avg   | 0.83       | 0.83           | 0.86           |
+| Support        | 2554       | 2548           | 2551           |
+
