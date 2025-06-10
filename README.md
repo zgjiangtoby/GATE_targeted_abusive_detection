@@ -182,3 +182,45 @@ Multiclass classification
 | Weighted Avg   | 0.83       | 0.83           | 0.86           |
 | Support        | 2554       | 2548           | 2551           |
 
+--------
+2025/06/10
+
+Target：
+@VRSoloviev：
+**User Profile: Vladimir Rudolʹfovich Solovyov (@VRSoloviev)**
+Vladimir Rudolʹfovich Solovyov is a Russian male media figure known for his roles as a television host, radio commentator, and political columnist. He is a prominent voice closely aligned with the Russian government and is widely recognized for amplifying pro-Kremlin narratives. Though not formally affiliated with a political party, Solovyov maintains ideological proximity to United Russia and operates as a consistent defender of President Vladimir Putin’s policies, particularly in matters of foreign affairs and national identity.
+Solovyov publicly identifies with Judaism and has acknowledged his Jewish heritage. He has been married three times and is currently married to psychologist Elga Sepp; he has eight children.
+His commentary is characterized by a strongly nationalistic and adversarial tone. He is known for endorsing Russia’s military actions abroad and for promoting rhetoric that frequently aligns with state strategic messaging. As a result, Solovyov has faced international sanctions, including travel restrictions and asset freezes, due to his role in supporting or legitimizing aggressive state behavior, particularly in the context of the Russia-Ukraine conflict.
+Solovyov’s close alignment with state messaging, coupled with his frequent appearances on state-controlled media, positions him as an influential figure in Russia’s domestic information space. At the same time, he has been widely criticized by international observers and civil society groups for spreading disinformation and fostering hostility through inflammatory speech. These dynamics have made him a central—but highly polarizing—actor in Russia’s contemporary media and political landscape.
+
+@yulia_navalnaya
+**User Profile: Yulia Borisovna Navalnaya (@yulia_navalnaya)**
+Yulia Navalnaya is a Russian female public figure and economist who has emerged as a leading opposition voice following the death of her husband, Alexei Navalny. Although she once avoided the spotlight, she was known as his trusted confidante and played a decisive role during his poisoning crisis in 2020 by orchestrating his evacuation to Germany and confronting authorities.
+Politically, Navalnaya was a member of the liberal, centre‑left Yabloko party from 2000 to 2011, but largely stayed out of active politics until she stepped into the public arena to continue her husband’s anti-corruption and pro-democracy agenda. She currently chairs the Human Rights Foundation and leads the Anti-Corruption Foundation, maintaining a dormant formal party association while driving the broader opposition movement. 
+From her background, Navalnaya is the mother of two children, born circa 2001 and 2008, and worked earlier in banking and trade roles before dedicating herself to family life. Though she now lives abroad for safety, she continues to represent a democratic alternative to Putin’s regime, vocally condemning his governance and calling for political reform in Russia.
+Navalnaya is widely seen by international audiences as a resilient figure of moral courage and democratic values, though her rise also invites scrutiny about continuity with her late husband’s leadership and the challenge of forging her own political identity in Russia’s repressive environment .
+
+@theresa_may
+**User Profile: Theresa May (@theresa_may)**
+Theresa Mary May is a British female political figure affiliated with the Conservative Party, best known for serving as the United Kingdom’s Prime Minister from July 2016 to July 2019, and previously as Home Secretary from 2010 to 2016. Although she never formally led a party beyond her role within the Conservative Party, her leadership was closely tied to party initiatives such as drafting and executing Brexit legislation, including the European Union (Notification of Withdrawal) Act 2017 and European Union (Withdrawal) Act 2018.
+May has been a Member of Parliament for Maidenhead from 1997 until stepping down at the 2024 general election, and in 2002–2003 she became the first female Chair of the Conservative Party. Earlier political roles included positions within the Shadow Cabinet such as Shadow Secretary for Education, Transport, the Family, and Culture.
+She grew up as the only child of an Anglican vicar, remains a committed member of the Church of England in the Anglo‑Catholic tradition, and regularly attends church. Married since 1980 to Philip May, they have no children.
+During her tenure as Home Secretary, May introduced major reforms including the National Crime Agency and Modern Slavery Act, and overhauled police oversight. As Prime Minister, she led the UK’s Brexit negotiations, took legal steps to invoke Article 50, and pursued policies on net-zero emissions, racial auditing, mental health funding expansion, and investigatory powers legislation.
+While praised for determination and public service ethos, her Brexit strategy also attracted criticism and parliamentary setbacks, contributing to intra-party conflict and her eventual resignation . Post-premiership, May has authored a book on institutional power abuse and remains active in public speaking and advocacy on modern slavery and justice issues.
+
+
+
+@trussliz
+**User Profile: Theresa May (@trussliz)**
+Mary Elizabeth Truss, known as Liz Truss, is a British female politician affiliated with the Conservative Party. She briefly served as Prime Minister of the United Kingdom from September to October 2022, making her the shortest-serving prime minister in British history. Prior to that, she held multiple senior cabinet positions, including Secretary of State for International Trade, Foreign Secretary, and Chief Secretary to the Treasury.
+Truss has been the Member of Parliament for South West Norfolk since 2010. Ideologically, she has been associated with libertarian-leaning economic policies, advocating for deregulation, tax cuts, and a minimal state. Her tenure as Prime Minister was marked by a controversial "mini-budget" that triggered financial market turmoil and widespread criticism, leading to her resignation after just 49 days in office.
+Religiously, Truss was raised in a liberal-left household with no strong religious affiliation, and she has not been prominently associated with any faith tradition. She is married to Hugh O’Leary, an accountant, and they have two daughters.
+Though her premiership was short-lived, Truss continues to engage in political commentary and policy advocacy, particularly on issues related to economic freedom, foreign policy, and opposition to what she describes as "left-wing cultural orthodoxy."
+
+@mariaressa
+**User Profile: Maria Angelita Ressa (@maria_ressa)**
+Maria Ressa is a Filipino–American investigative journalist, co‑founder and CEO of Rappler, the Manilla‑based digital news outlet renowned for its focus on accountability, social media manipulation, and democratic resilience. With nearly four decades of experience—including key roles as CNN bureau chief in Manila and Jakarta—she has been a persistent critic of authoritarian governance and human rights violations in the Philippines.
+Ressa holds dual Filipino and US citizenship. She is married (spousal details not prominently disclosed) and maintains a low‑profile personal life to safeguard privacy.
+Her work has been recognized globally: she received the 2021 Nobel Peace Prize “for efforts to safeguard freedom of expression, which is a precondition for democracy and lasting peace”. She has also been named Time’s Person of the Year (2018), among its 100 Most Influential People (2019), and has won numerous awards for press freedom and resilience .
+Ressa’s career has been marked by both professional acclaim and legal struggle: her outlet Rappler faced government harassment under Rodrigo Duterte’s administration, leading to criminal charges such as cyber-libel and alleged tax violations—widely regarded as politically motivated. International human rights organizations have condemned these actions as part of a broader attack on media independence.
+Currently a professor of professional practice and distinguished fellow at Columbia SIPA, Ressa continues to advocate for democratic reforms, ethical journalism, and accountability for digital-era disinformation.
