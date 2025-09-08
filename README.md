@@ -256,4 +256,119 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.87 | 3814 |
 | | macro avg | 0.66 | 0.78 | 0.7 | 3814 |
 | | weighted avg | 0.92 | 0.87 | 0.89 | 3814 |
-<center>表2</center>
+<div align="center">表2</div>
+
+对于零样本，我们还做了一个小实验，在input内容后加一个label标签，实验结果表明，不加标签的实验结果比加标签后的实验结果相差不大，但总体稍差。实验结果如表3所示。
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen-2.5-14B(纠错后，加label)** | | | | | |
+| | unidentified-targets | 0.3 | 0.8 | 0.44 | 317 |
+| | target-abusive | 0.98 | 0.83 | 0.9 | 3497 |
+| | accuracy | | | 0.83 | 3814 |
+| | macro avg | 0.64 | 0.82 | 0.67 | 3814 |
+| | weighted avg | 0.92 | 0.83 | 0.86 | 3814 |
+<div align="center">表3</div>
+
+# 少样本
+随后，我们在此基础上用新的数据集和同样的方法进行少样本实验。实验结果如表4所示。
+| Model | Class | precision | recall | fl-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **8-shot Qwen-2.5-14B** | | | | | |
+| | unidentified-targets | 0.33 | 0.66 | 0.47 | 317 |
+| | target-abusive | 0.98 | 0.93 | 0.91 | 3497 |
+| | accuracy | | | 0.85 | 3814 |
+| | macro avg | 0.69 | 0.88 | 0.85 | 3814 |
+| | weighted avg | 0.83 | 0.85 | 0.85 | 3814 |
+| **Qwen-2.5-14B (label)** | | | | | |
+| | unidentified-targets | 0.27 | 0.62 | 0.4 | 317 |
+| | target-abusive | 0.97 | 0.91 | 0.89 | 3497 |
+| | accuracy | | | 0.81 | 3814 |
+| | macro avg | 0.64 | 0.85 | 0.81 | 3814 |
+| | weighted avg | 0.78 | 0.81 | 0.81 | 3814 |
+<div align="center">表4</div>
+
+随后，我们更新了一下样本提示及回复结果，进行了样本的一个新实验，我们加上了non-abusive这个标签，二分类任务现在变成了一个三分类任务，我们将response里label中的结果转换成0,1,2，然后进行评估，评估结果如表5所示。
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen-2.5-14B** | | | | | |
+| | unidentified-targets | 0.08 | 0.13 | 0.1 | 317 |
+| | target-abusive | 0.72 | 0.93 | 0.81 | 3497 |
+| | non-abusive | 0.96 | 0.69 | 0.8 | 4206 |
+| | accuracy | | | 0.77 | 8020 |
+| | macro avg | 0.59 | 0.58 | 0.57 | 8020 |
+| | weighted avg | 0.82 | 0.77 | 0.78 | 8020 |
+<div align="center">表5</div>
+
+随后我们还是将non-abusive这个标签去掉，还是做一个二分类任务，分别进行了1,3,5个样本的实验，实验结果如表6所示。
+| Shot Type | Model | Class | precision | recall | f1-score | support |
+|-----------|-------|-------|-----------|--------|----------|---------|
+| **1-shot** | Qwen-2.5-14B | unidentified-targets | 0.14 | 0.13 | 0.14 | 317 |
+| | | target-abusive | 0.92 | 0.93 | 0.92 | 3497 |
+| | | accuracy | | | 0.86 | 3814 |
+| | | macro avg | 0.53 | 0.53 | 0.53 | 3814 |
+| | | weighted avg | 0.86 | 0.86 | 0.86 | 3814 |
+| **3-shot** | Qwen-2.5-14B | unidentified-targets | 0.15 | 0.58 | 0.24 | 317 |
+| | | target-abusive | 0.95 | 0.69 | 0.8 | 3497 |
+| | | accuracy | | | 0.68 | 3814 |
+| | | macro avg | 0.55 | 0.53 | 0.52 | 3814 |
+| | | weighted avg | 0.88 | 0.68 | 0.75 | 3814 |
+| **5-shot** | Qwen-2.5-14B | unidentified-targets | 0.15 | 0.49 | 0.23 | 317 |
+| | | target-abusive | 0.94 | 0.76 | 0.84 | 3497 |
+| | | accuracy | | | 0.74 | 3814 |
+| | | macro avg | 0.55 | 0.62 | 0.54 | 3814 |
+| | | weighted avg | 0.88 | 0.74 | 0.79 | 3814 |
+<div align="center">表6</div>
+
+我们发现这些实验结果分数都较低，我们猜想是不是用户画像影响了实验结果，我们在新的少样本实验基础上，把用户画像也添加上去，分别也进行了1,3,5shot实验，实验结果如表7所示。
+
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen-2.5-14B (add_profiles) 1** | | | | | |
+| | unidentified-targets | 0.27 | 0.4 | 0.32 | 317 |
+| | target-abusive | 0.94 | 0.9 | 0.92 | 3497 |
+| | accuracy | | | 0.86 | 3814 |
+| | macro avg | 0.61 | 0.65 | 0.62 | 3814 |
+| | weighted avg | 0.89 | 0.86 | 0.87 | 3814 |
+| **Qwen-2.5-14B (add_profiles) 3** | | | | | |
+| | unidentified-targets | 0.21 | 0.58 | 0.31 | 317 |
+| | target-abusive | 0.95 | 0.8 | 0.87 | 3497 |
+| | accuracy | | | 0.78 | 3814 |
+| | macro avg | 0.58 | 0.69 | 0.59 | 3814 |
+| | weighted avg | 0.89 | 0.78 | 0.82 | 3814 |
+| **Qwen-2.5-14B (add_profiles) 5** | | | | | |
+| | unidentified-targets | 0.2 | 0.57 | 0.29 | 317 |
+| | target-abusive | 0.95 | 0.79 | 0.86 | 3497 |
+| | accuracy | | | 0.77 | 3814 |
+| | macro avg | 0.57 | 0.68 | 0.58 | 3814 |
+| | weighted avg | 0.89 | 0.77 | 0.81 | 3814 |
+<div align="center">表7</div>
+我们发现随着shot数量增加，f1分数反倒降低（但是相比之前没有加user profiles的结果有一定提升）。
+
+# 微调
+在进行了少样本学习后，我们开始尝试用微调来进行该任务，我们首先微调了三个小模型，我们还是将non-abusive这个类加到分类当中，将该任务视作一个三分类任务，实验结果如表8所示。
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **mdeberta-v3-base (微调epoch20)** | | | | | |
+| | unidentified-targets | 0.2592 | 0.4516 | 0.3294 | 317 |
+| | target-abusive | 0.8351 | 0.8828 | 0.8583 | 3497 |
+| | non-abusive | 0.9047 | 0.8123 | 0.856 | 4206 |
+| | accuracy | | | 0.8291 | 8020 |
+| | macro avg | 0.6663 | 0.7156 | 0.6812 | 8020 |
+| | weighted avg | 0.8494 | 0.8291 | 0.8367 | 8020 |
+| **mt5-base-wikinewssum-all-languages (微调epoch30)** | | | | | |
+| | unidentified-targets | 0.4347 | 0.3225 | 0.3703 | 317 |
+| | target-abusive | 0.8031 | 0.8742 | 0.8372 | 3497 |
+| | non-abusive | 0.8793 | 0.8313 | 0.8547 | 4206 |
+| | accuracy | | | 0.8304 | 8020 |
+| | macro avg | 0.7057 | 0.676 | 0.6874 | 8020 |
+| | weighted avg | 0.8289 | 0.8304 | 0.8283 | 8020 |
+| **multilingual-e5-base (微调epoch10)** | | | | | |
+| | unidentified-targets | 0.5882 | 0.3225 | 0.4166 | 317 |
+| | target-abusive | 0.8457 | 0.8771 | 0.8611 | 3497 |
+| | non-abusive | 0.8791 | 0.8812 | 0.8801 | 4206 |
+| | accuracy | | | 0.8578 | 8020 |
+| | macro avg | 0.771 | 0.6936 | 0.7193 | 8020 |
+| | weighted avg | 0.8533 | 0.8578 | 0.8539 | 8020 |
+<div align="center">表8</div>
+从表8中，我们可以看到，multilingual-e5-base（微调epoch10）该模型10个epoch的时候，结果最好，f1分数达到了0.7193。
+
