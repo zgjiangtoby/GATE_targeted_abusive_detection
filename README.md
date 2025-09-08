@@ -239,7 +239,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | @RSoloviev        | 787      | 733         | 93.14   | 14         | 747             | 94.92      |                        
 | @Julia_navalnaya  | 718      | 487         | 67.83   | 7          | 564             | 78.55      |                         
 | sum               | 3814     | 3127        | 81.99   | 179        | 3306            | 86.68      |  
-<center>表1</center>
+<div align="center">表1</div>
 
 得到新的纠错后数据集后重新跑了一下实验，得到实验结果如表2所示。
 | Model | Class | precision | recall | fl-score | support |
