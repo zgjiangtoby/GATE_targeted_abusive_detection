@@ -224,3 +224,10 @@ Ressa holds dual Filipino and US citizenship. She is married (spousal details no
 Her work has been recognized globally: she received the 2021 Nobel Peace Prize “for efforts to safeguard freedom of expression, which is a precondition for democracy and lasting peace”. She has also been named Time’s Person of the Year (2018), among its 100 Most Influential People (2019), and has won numerous awards for press freedom and resilience .
 Ressa’s career has been marked by both professional acclaim and legal struggle: her outlet Rappler faced government harassment under Rodrigo Duterte’s administration, leading to criminal charges such as cyber-libel and alleged tax violations—widely regarded as politically motivated. International human rights organizations have condemned these actions as part of a broader attack on media independence.
 Currently a professor of professional practice and distinguished fellow at Columbia SIPA, Ressa continues to advocate for democratic reforms, ethical journalism, and accountability for digital-era disinformation.
+
+
+--------
+2025/09/08
+
+# 零样本
+首先将数据集拆分成五个同人名数据集，然后我们分别结合五个人的人物画像，对五个同人名数据集单独进行实验。随后根据大模型的预测结果，我们得到了687条大模型预测错误的数据，我对这687条数据进行了错误分析，查看是否存在人工标错数据的可能，然后发现其中有179条数据是我们人工标注存在问题，大模型预测的结果是对的，而我们的人工标注结果是错的，我对这179条数据进行了重新标注，随后得到一个最终的预测结果。实验数据及结果如图1所示。
