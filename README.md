@@ -344,7 +344,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表7</div>
 我们发现随着shot数量增加，f1分数反倒降低（但是相比之前没有加user profiles的结果有一定提升）。
 
-# 微调
+# 微调小模型
 在进行了少样本学习后，我们开始尝试用微调来进行该任务，我们首先微调了三个小模型，我们还是将non-abusive这个类加到分类当中，将该任务视作一个三分类任务，实验结果如表8所示。
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
@@ -372,3 +372,22 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表8</div>
 从表8中，我们可以看到，multilingual-e5-base（微调epoch10）该模型10个epoch的时候，结果最好，f1分数达到了0.7193。
 
+我们用这个最好的小模型结果画了一个confusion_matrix，如图所示。其中
+### confusion_matrix
+<table>
+  <tr>
+    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/deberta-v3-large.png" alt="图片1描述" width="600"></td>
+    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/gemma3-4b.png" alt="图片2描述" width="600"></td>
+  </tr>
+  <tr>
+    <td align="center">deberta-v3-large</td>
+    <td align="center">gemma3-4b-it</td>
+  </tr>
+</table>
+
+
+--------
+2025/09/20
+
+# 微调大模型
+在微调了三个小模型之后，我们继续尝试微调大模型。我们
