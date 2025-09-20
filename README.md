@@ -370,9 +370,8 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | macro avg | 0.771 | 0.6936 | 0.7193 | 8020 |
 | | weighted avg | 0.8533 | 0.8578 | 0.8539 | 8020 |
 <div align="center">表8</div>
-从表8中，我们可以看到，multilingual-e5-base（微调epoch10）该模型10个epoch的时候，结果最好，f1分数达到了0.7193。
+从表8中，我们可以看到，multilingual-e5-base（微调epoch10）该模型10个epoch的时候，结果最好，f1分数达到了0.7193。其次，我们用这个最好的小模型结果画了一个confusion_matrix，如图所示。其中0表示unidentified-targets，1表示targets-abusive，2表示non-abusive。
 
-我们用这个最好的小模型结果画了一个confusion_matrix，如图所示。其中
 ### confusion_matrix
 <table>
   <tr>
@@ -388,4 +387,58 @@ Currently a professor of professional practice and distinguished fellow at Colum
 2025/09/20
 
 # 微调大模型
-在微调了三个小模型之后，我们继续尝试微调大模型。我们
+在微调了三个小模型之后，我们继续尝试微调大模型。我们首先使用和微调小模型相同的数据集在Qwen2-7B-instruct上进行实验，分别跑了中文和英文prompt的两次实验，实验结果如表9所示。
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen2-7B-instruct (epoch5, 中文prompt)** | | | | | |
+| | unidentified-targets | 0.05 | 0.16 | 0.08 | 31 |
+| | target-abusive | 0.67 | 0.65 | 0.66 | 350 |
+| | non-abusive | 0.68 | 0.6 | 0.64 | 421 |
+| | accuracy | | | 0.6 | 802 |
+| | macro avg | 0.47 | 0.47 | 0.46 | 802 |
+| | weighted avg | 0.65 | 0.6 | 0.63 | 802 |
+| **Qwen2-7B-instruct (epoch5, 英文prompt)** | | | | | |
+| | unidentified-targets | 0 | 0 | 0 | 31 |
+| | target-abusive | 0.67 | 0.52 | 0.59 | 350 |
+| | non-abusive | 0.52 | 0.44 | 0.47 | 421 |
+| | accuracy | | | 0.46 | 802 |
+| | macro avg | 0.39 | 0.32 | 0.35 | 802 |
+| | weighted avg | 0.52 | 0.44 | 0.47 | 802 |
+<div align="center">表9</div>
+我们发现这两次的实验结果都不太理想，所以针对数据集做了一些简单调整，我们在新的数据集中新加了一个target字段，原来的数据集只有两个字段（即“text”和“label”），新的数据集有三个（即“text”，“target”，“label”），我们将关注的目标添加到数据集中，以便大模型更清楚的知道是要针对哪一个@目标进行仇恨言论检测。我们在新的数据集上重新进行实验，首先仍然在Qwen2-7B-instruct进行了两次实验（epoch分别为5和10），实验结果如表10所示。
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen2-7B-instruct (new_data, epoch5, 中文prompt)** | | | | | |
+| | unidentified-targets | 1 | 0.03 | 0.06 | 31 |
+| | target-abusive | 0.83 | 0.9 | 0.86 | 350 |
+| | non-abusive | 0.88 | 0.88 | 0.88 | 421 |
+| | accuracy | | | 0.86 | 802 |
+| | macro avg | 0.9 | 0.6 | 0.6 | 802 |
+| | weighted avg | 0.86 | 0.86 | 0.84 | 802 |
+| **Qwen2-7B-instruct (new_data, epoch10, 中文prompt)** | | | | | |
+| | unidentified-targets | 0.4 | 0.19 | 0.26 | 31 |
+| | target-abusive | 0.84 | 0.87 | 0.86 | 350 |
+| | non-abusive | 0.88 | 0.89 | 0.89 | 421 |
+| | accuracy | | | 0.86 | 802 |
+| | macro avg | 0.71 | 0.65 | 0.67 | 802 |
+| | weighted avg | 0.85 | 0.86 | 0.85 | 802 |
+<div align="center">表10</div>
+我们发现使用新的数据集后，实验结果有所提升，但效果却没有最好的小模型效果好。我们接下来尝试了更多的模型，我们继续在Qwen2.5-14B上分别进行了两次实验（epoch10和20），实验结果如表11所示。
+| Model | Class | precision | recall | fl-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen2.5-14B (new_data, epoch10, 英文prompt)** | | | | | |
+| | unidentified-targets | 0.46 | 0.35 | 0.4 | 31 |
+| | target-abusive | 0.85 | 0.89 | 0.87 | 350 |
+| | non-abusive | 0.89 | 0.87 | 0.88 | 421 |
+| | accuracy | | | 0.86 | 802 |
+| | macro avg | 0.73 | 0.7 | 0.72 | 802 |
+| | weighted avg | 0.86 | 0.86 | 0.86 | 802 |
+| **Qwen2.5-14B (new_data, epoch20, 英文prompt)** | | | | | |
+| | unidentified-targets | 0.39 | 0.42 | 0.41 | 31 |
+| | target-abusive | 0.85 | 0.84 | 0.84 | 350 |
+| | non-abusive | 0.86 | 0.86 | 0.86 | 421 |
+| | accuracy | | | 0.83 | 802 |
+| | macro avg | 0.7 | 0.71 | 0.7 | 802 |
+| | weighted avg | 0.83 | 0.83 | 0.83 | 802 |
+<div align="center">表11</div>
+如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
