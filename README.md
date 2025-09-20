@@ -426,7 +426,9 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | weighted avg | 0.85 | 0.86 | 0.85 | 802 |
 <div align="center">表10</div>
 我们发现使用新的数据集后，实验结果有所提升，但效果却没有最好的小模型效果好。我们接下来尝试了更多的模型，我们继续在Qwen2.5-14B上分别进行了两次实验（epoch10和20），实验结果如表11所示。
+
 <div align="center">
+  
 | Model | Class | precision | recall | fl-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2.5-14B (new_data, epoch10, 英文prompt)** | | | | | |
@@ -443,6 +445,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.83 | 802 |
 | | macro avg | 0.7 | 0.71 | 0.7 | 802 |
 | | weighted avg | 0.83 | 0.83 | 0.83 | 802 |
+
 </div>
 <div align="center">表11</div>
 如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
