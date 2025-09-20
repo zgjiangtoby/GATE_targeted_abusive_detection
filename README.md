@@ -376,12 +376,10 @@ Currently a professor of professional practice and distinguished fellow at Colum
 ### confusion_matrix
 <table>
   <tr>
-    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/deberta-v3-large.png" alt="图片1描述" width="600"></td>
-    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/gemma3-4b.png" alt="图片2描述" width="600"></td>
+    <td><img src="https://github.com/zgjiangtoby/GATE_targeted_abusive_detection/blob/main/confusion_matrix/multilingual-e5-base.png" alt="图片1描述" width="600"></td>
   </tr>
   <tr>
-    <td align="center">deberta-v3-large</td>
-    <td align="center">gemma3-4b-it</td>
+    <td align="center">multilingual-e5-base</td>
   </tr>
 </table>
 
