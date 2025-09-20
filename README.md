@@ -231,6 +231,8 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 # 零样本
 首先将数据集拆分成五个同人名数据集，然后我们分别结合五个人的人物画像，对五个同人名数据集单独进行实验。随后根据大模型的预测结果，我们得到了687条大模型预测错误的数据，我对这687条数据进行了错误分析，查看是否存在人工标错数据的可能，然后发现其中有179条数据是我们人工标注存在问题，大模型预测的结果是对的，而我们的人工标注结果是错的，我对这179条数据进行了重新标注，随后得到一个最终的预测结果。实验数据及结果如表1所示。
+<div align="center">
+  
 | target            | 总样本数  | 正确样本数   | 准确率   | 标错样本数 | 纠错后正确样本数 | 纠错后准确率 |
 |------------------ |----------|-------------|---------|------------|-----------------|------------|
 | @mariaressa       | 569      | 469         | 82.43   | 34         | 503             | 88.4       |                       
@@ -239,9 +241,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | @RSoloviev        | 787      | 733         | 93.14   | 14         | 747             | 94.92      |                        
 | @Julia_navalnaya  | 718      | 487         | 67.83   | 7          | 564             | 78.55      |                         
 | sum               | 3814     | 3127        | 81.99   | 179        | 3306            | 86.68      |  
+
+</div>
 <div align="center">表1</div>
 
 得到新的纠错后数据集后重新跑了一下实验，得到实验结果如表2所示。
+<div align="center">
+  
 | Model | Class | precision | recall | fl-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen-2.5-14B (纠错前)** | | | | | |
@@ -256,9 +262,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.87 | 3814 |
 | | macro avg | 0.66 | 0.78 | 0.7 | 3814 |
 | | weighted avg | 0.92 | 0.87 | 0.89 | 3814 |
+
+</div>
 <div align="center">表2</div>
 
 对于零样本，我们还做了一个小实验，在input内容后加一个label标签，实验结果表明，不加标签的实验结果比加标签后的实验结果相差不大，但总体稍差。实验结果如表3所示。
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen-2.5-14B(纠错后，加label)** | | | | | |
@@ -267,10 +277,14 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.83 | 3814 |
 | | macro avg | 0.64 | 0.82 | 0.67 | 3814 |
 | | weighted avg | 0.92 | 0.83 | 0.86 | 3814 |
+
+</div>
 <div align="center">表3</div>
 
 # 少样本
 随后，我们在此基础上用新的数据集和同样的方法进行少样本实验。实验结果如表4所示。
+<div align="center">
+  
 | Model | Class | precision | recall | fl-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **8-shot Qwen-2.5-14B** | | | | | |
@@ -285,9 +299,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.81 | 3814 |
 | | macro avg | 0.64 | 0.85 | 0.81 | 3814 |
 | | weighted avg | 0.78 | 0.81 | 0.81 | 3814 |
+
+</div>
 <div align="center">表4</div>
 
 随后，我们更新了一下样本提示及回复结果，进行了样本的一个新实验，我们加上了non-abusive这个标签，二分类任务现在变成了一个三分类任务，我们将response里label中的结果转换成0,1,2，然后进行评估，评估结果如表5所示。
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen-2.5-14B** | | | | | |
@@ -297,9 +315,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.77 | 8020 |
 | | macro avg | 0.59 | 0.58 | 0.57 | 8020 |
 | | weighted avg | 0.82 | 0.77 | 0.78 | 8020 |
+
+</div>
 <div align="center">表5</div>
 
 随后我们还是将non-abusive这个标签去掉，还是做一个二分类任务，分别进行了1,3,5个样本的实验，实验结果如表6所示。
+<div align="center">
+  
 | Shot Type | Model | Class | precision | recall | f1-score | support |
 |-----------|-------|-------|-----------|--------|----------|---------|
 | **1-shot** | Qwen-2.5-14B | unidentified-targets | 0.14 | 0.13 | 0.14 | 317 |
@@ -317,10 +339,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | | accuracy | | | 0.74 | 3814 |
 | | | macro avg | 0.55 | 0.62 | 0.54 | 3814 |
 | | | weighted avg | 0.88 | 0.74 | 0.79 | 3814 |
+
+</div>
 <div align="center">表6</div>
 
 我们发现这些实验结果分数都较低，我们猜想是不是用户画像影响了实验结果，我们在新的少样本实验基础上，把用户画像也添加上去，分别也进行了1,3,5shot实验，实验结果如表7所示。
-
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen-2.5-14B (add_profiles) 1** | | | | | |
@@ -341,11 +366,15 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.77 | 3814 |
 | | macro avg | 0.57 | 0.68 | 0.58 | 3814 |
 | | weighted avg | 0.89 | 0.77 | 0.81 | 3814 |
+
+</div>
 <div align="center">表7</div>
 我们发现随着shot数量增加，f1分数反倒降低（但是相比之前没有加user profiles的结果有一定提升）。
 
 # 微调小模型
 在进行了少样本学习后，我们开始尝试用微调来进行该任务，我们首先微调了三个小模型，我们还是将non-abusive这个类加到分类当中，将该任务视作一个三分类任务，实验结果如表8所示。
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **mdeberta-v3-base (微调epoch20)** | | | | | |
@@ -369,9 +398,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.8578 | 8020 |
 | | macro avg | 0.771 | 0.6936 | 0.7193 | 8020 |
 | | weighted avg | 0.8533 | 0.8578 | 0.8539 | 8020 |
+
+</div>
 <div align="center">表8</div>
 从表8中，我们可以看到，multilingual-e5-base（微调epoch10）该模型10个epoch的时候，结果最好，f1分数达到了0.7193。其次，我们用这个最好的小模型结果画了一个confusion_matrix，如图所示。其中0表示unidentified-targets，1表示targets-abusive，2表示non-abusive。
 
+<div align="center">
+  
 ### confusion_matrix
 <table>
   <tr>
@@ -382,13 +415,16 @@ Currently a professor of professional practice and distinguished fellow at Colum
   </tr>
 </table>
 
+</div>
+
 
 --------
 2025/09/20
 
 # 微调大模型
 在微调了三个小模型之后，我们继续尝试微调大模型。我们首先使用和微调小模型相同的数据集在Qwen2-7B-instruct上进行实验，分别跑了中文和英文prompt的两次实验，实验结果如表9所示。
-
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2-7B-instruct (epoch5, 中文prompt)** | | | | | |
@@ -405,9 +441,12 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.46 | 802 |
 | | macro avg | 0.39 | 0.32 | 0.35 | 802 |
 | | weighted avg | 0.52 | 0.44 | 0.47 | 802 |
+
+</div>
 <div align="center">表9</div>
 我们发现这两次的实验结果都不太理想，所以针对数据集做了一些简单调整，我们在新的数据集中新加了一个target字段，原来的数据集只有两个字段（即“text”和“label”），新的数据集有三个（即“text”，“target”，“label”），我们将关注的目标添加到数据集中，以便大模型更清楚的知道是要针对哪一个@目标进行仇恨言论检测。我们在新的数据集上重新进行实验，首先仍然在Qwen2-7B-instruct进行了两次实验（epoch分别为5和10），实验结果如表10所示。
-
+<div align="center">
+  
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2-7B-instruct (new_data, epoch5, 中文prompt)** | | | | | |
@@ -424,6 +463,8 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.86 | 802 |
 | | macro avg | 0.71 | 0.65 | 0.67 | 802 |
 | | weighted avg | 0.85 | 0.86 | 0.85 | 802 |
+
+</div>
 <div align="center">表10</div>
 我们发现使用新的数据集后，实验结果有所提升，但效果却没有最好的小模型效果好。我们接下来尝试了更多的模型，我们继续在Qwen2.5-14B上分别进行了两次实验（epoch10和20），实验结果如表11所示。
 
