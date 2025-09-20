@@ -288,17 +288,17 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | Model | Class | precision | recall | fl-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **8-shot Qwen-2.5-14B** | | | | | |
-| | unidentified-targets | 0.33 | 0.66 | 0.47 | 317 |
-| | target-abusive | 0.98 | 0.93 | 0.91 | 3497 |
+| | unidentified-targets | 0.33 | 0.80 | 0.47 | 317 |
+| | target-abusive | 0.98 | 0.85 | 0.91 | 3497 |
 | | accuracy | | | 0.85 | 3814 |
-| | macro avg | **0.69** | 0.88 | 0.85 | 3814 |
-| | weighted avg | 0.83 | 0.85 | 0.85 | 3814 |
+| | macro avg | 0。66 | 0.83 | **0.69** | 3814 |
+| | weighted avg | 0.93 | 0.85 | 0.88 | 3814 |
 | **Qwen-2.5-14B (label)** | | | | | |
-| | unidentified-targets | 0.27 | 0.62 | 0.4 | 317 |
-| | target-abusive | 0.97 | 0.91 | 0.89 | 3497 |
+| | unidentified-targets | 0.27 | 0.75 | 0.4 | 317 |
+| | target-abusive | 0.97 | 0.81 | 0.89 | 3497 |
 | | accuracy | | | 0.81 | 3814 |
-| | macro avg | **0.64** | 0.85 | 0.81 | 3814 |
-| | weighted avg | 0.78 | 0.81 | 0.81 | 3814 |
+| | macro avg | 0,62 | 0.78 | **0.64** | 3814 |
+| | weighted avg | 0.91 | 0.81 | 0.85 | 3814 |
 
 </div>
 <div align="center">表4</div>
