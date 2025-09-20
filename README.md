@@ -388,6 +388,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 # 微调大模型
 在微调了三个小模型之后，我们继续尝试微调大模型。我们首先使用和微调小模型相同的数据集在Qwen2-7B-instruct上进行实验，分别跑了中文和英文prompt的两次实验，实验结果如表9所示。
+
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2-7B-instruct (epoch5, 中文prompt)** | | | | | |
@@ -406,6 +407,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | weighted avg | 0.52 | 0.44 | 0.47 | 802 |
 <div align="center">表9</div>
 我们发现这两次的实验结果都不太理想，所以针对数据集做了一些简单调整，我们在新的数据集中新加了一个target字段，原来的数据集只有两个字段（即“text”和“label”），新的数据集有三个（即“text”，“target”，“label”），我们将关注的目标添加到数据集中，以便大模型更清楚的知道是要针对哪一个@目标进行仇恨言论检测。我们在新的数据集上重新进行实验，首先仍然在Qwen2-7B-instruct进行了两次实验（epoch分别为5和10），实验结果如表10所示。
+
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2-7B-instruct (new_data, epoch5, 中文prompt)** | | | | | |
@@ -424,6 +426,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | weighted avg | 0.85 | 0.86 | 0.85 | 802 |
 <div align="center">表10</div>
 我们发现使用新的数据集后，实验结果有所提升，但效果却没有最好的小模型效果好。我们接下来尝试了更多的模型，我们继续在Qwen2.5-14B上分别进行了两次实验（epoch10和20），实验结果如表11所示。
+<div align="center">
 | Model | Class | precision | recall | fl-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **Qwen2.5-14B (new_data, epoch10, 英文prompt)** | | | | | |
@@ -440,5 +443,6 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | accuracy | | | 0.83 | 802 |
 | | macro avg | 0.7 | 0.71 | 0.7 | 802 |
 | | weighted avg | 0.83 | 0.83 | 0.83 | 802 |
+</div>
 <div align="center">表11</div>
 如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
