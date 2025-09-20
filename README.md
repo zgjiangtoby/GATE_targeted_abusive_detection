@@ -254,13 +254,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | unidentified-targets | 0.13 | 0.53 | 0.21 | 176 |
 | | target-abusive | 0.97 | 0.83 | 0.9 | 3638 |
 | | accuracy | | | 0.82 | 3814 |
-| | macro avg | 0.55 | 0.68 | 0.56 | 3814 |
+| | macro avg | 0.55 | 0.68 | **0.56** | 3814 |
 | | weighted avg | 0.93 | 0.82 | 0.87 | 3814 |
 | **Qwen-2.5-14B (纠错后)** | | | | | |
 | | unidentified-targets | 0.35 | 0.68 | 0.47 | 317 |
 | | target-abusive | 0.97 | 0.89 | 0.93 | 3497 |
 | | accuracy | | | 0.87 | 3814 |
-| | macro avg | 0.66 | 0.78 | 0.7 | 3814 |
+| | macro avg | 0.66 | 0.78 | **0.7** | 3814 |
 | | weighted avg | 0.92 | 0.87 | 0.89 | 3814 |
 
 </div>
@@ -275,14 +275,14 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | unidentified-targets | 0.3 | 0.8 | 0.44 | 317 |
 | | target-abusive | 0.98 | 0.83 | 0.9 | 3497 |
 | | accuracy | | | 0.83 | 3814 |
-| | macro avg | 0.64 | 0.82 | 0.67 | 3814 |
+| | macro avg | 0.64 | 0.82 | **0.67** | 3814 |
 | | weighted avg | 0.92 | 0.83 | 0.86 | 3814 |
 
 </div>
 <div align="center">表3</div>
 
 # 少样本
-随后，我们在此基础上用新的数据集和同样的方法进行少样本实验。实验结果如表4所示。
+随后，我们在此基础上用纠错后的数据集和同样的方法进行少样本实验。实验结果如表4所示。
 <div align="center">
   
 | Model | Class | precision | recall | fl-score | support |
@@ -291,13 +291,13 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | unidentified-targets | 0.33 | 0.66 | 0.47 | 317 |
 | | target-abusive | 0.98 | 0.93 | 0.91 | 3497 |
 | | accuracy | | | 0.85 | 3814 |
-| | macro avg | 0.69 | 0.88 | 0.85 | 3814 |
+| | macro avg | **0.69** | 0.88 | 0.85 | 3814 |
 | | weighted avg | 0.83 | 0.85 | 0.85 | 3814 |
 | **Qwen-2.5-14B (label)** | | | | | |
 | | unidentified-targets | 0.27 | 0.62 | 0.4 | 317 |
 | | target-abusive | 0.97 | 0.91 | 0.89 | 3497 |
 | | accuracy | | | 0.81 | 3814 |
-| | macro avg | 0.64 | 0.85 | 0.81 | 3814 |
+| | macro avg | **0.64** | 0.85 | 0.81 | 3814 |
 | | weighted avg | 0.78 | 0.81 | 0.81 | 3814 |
 
 </div>
@@ -313,7 +313,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.72 | 0.93 | 0.81 | 3497 |
 | | non-abusive | 0.96 | 0.69 | 0.8 | 4206 |
 | | accuracy | | | 0.77 | 8020 |
-| | macro avg | 0.59 | 0.58 | 0.57 | 8020 |
+| | macro avg | 0.59 | 0.58 | **0.57** | 8020 |
 | | weighted avg | 0.82 | 0.77 | 0.78 | 8020 |
 
 </div>
@@ -327,17 +327,17 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | **1-shot** | Qwen-2.5-14B | unidentified-targets | 0.14 | 0.13 | 0.14 | 317 |
 | | | target-abusive | 0.92 | 0.93 | 0.92 | 3497 |
 | | | accuracy | | | 0.86 | 3814 |
-| | | macro avg | 0.53 | 0.53 | 0.53 | 3814 |
+| | | macro avg | 0.53 | 0.53 | **0.53** | 3814 |
 | | | weighted avg | 0.86 | 0.86 | 0.86 | 3814 |
 | **3-shot** | Qwen-2.5-14B | unidentified-targets | 0.15 | 0.58 | 0.24 | 317 |
 | | | target-abusive | 0.95 | 0.69 | 0.8 | 3497 |
 | | | accuracy | | | 0.68 | 3814 |
-| | | macro avg | 0.55 | 0.53 | 0.52 | 3814 |
+| | | macro avg | 0.55 | 0.53 | **0.52** | 3814 |
 | | | weighted avg | 0.88 | 0.68 | 0.75 | 3814 |
 | **5-shot** | Qwen-2.5-14B | unidentified-targets | 0.15 | 0.49 | 0.23 | 317 |
 | | | target-abusive | 0.94 | 0.76 | 0.84 | 3497 |
 | | | accuracy | | | 0.74 | 3814 |
-| | | macro avg | 0.55 | 0.62 | 0.54 | 3814 |
+| | | macro avg | 0.55 | 0.62 | **0.54** | 3814 |
 | | | weighted avg | 0.88 | 0.74 | 0.79 | 3814 |
 
 </div>
@@ -352,19 +352,19 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | unidentified-targets | 0.27 | 0.4 | 0.32 | 317 |
 | | target-abusive | 0.94 | 0.9 | 0.92 | 3497 |
 | | accuracy | | | 0.86 | 3814 |
-| | macro avg | 0.61 | 0.65 | 0.62 | 3814 |
+| | macro avg | 0.61 | 0.65 | **0.62** | 3814 |
 | | weighted avg | 0.89 | 0.86 | 0.87 | 3814 |
 | **Qwen-2.5-14B (add_profiles) 3** | | | | | |
 | | unidentified-targets | 0.21 | 0.58 | 0.31 | 317 |
 | | target-abusive | 0.95 | 0.8 | 0.87 | 3497 |
 | | accuracy | | | 0.78 | 3814 |
-| | macro avg | 0.58 | 0.69 | 0.59 | 3814 |
+| | macro avg | 0.58 | 0.69 | **0.59** | 3814 |
 | | weighted avg | 0.89 | 0.78 | 0.82 | 3814 |
 | **Qwen-2.5-14B (add_profiles) 5** | | | | | |
 | | unidentified-targets | 0.2 | 0.57 | 0.29 | 317 |
 | | target-abusive | 0.95 | 0.79 | 0.86 | 3497 |
 | | accuracy | | | 0.77 | 3814 |
-| | macro avg | 0.57 | 0.68 | 0.58 | 3814 |
+| | macro avg | 0.57 | 0.68 | **0.58** | 3814 |
 | | weighted avg | 0.89 | 0.77 | 0.81 | 3814 |
 
 </div>
@@ -378,26 +378,26 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | Model | Class | precision | recall | f1-score | support |
 |-------|-------|-----------|--------|----------|---------|
 | **mdeberta-v3-base (微调epoch20)** | | | | | |
-| | unidentified-targets | 0.2592 | 0.4516 | 0.3294 | 317 |
-| | target-abusive | 0.8351 | 0.8828 | 0.8583 | 3497 |
-| | non-abusive | 0.9047 | 0.8123 | 0.856 | 4206 |
-| | accuracy | | | 0.8291 | 8020 |
-| | macro avg | 0.6663 | 0.7156 | 0.6812 | 8020 |
-| | weighted avg | 0.8494 | 0.8291 | 0.8367 | 8020 |
+| | unidentified-targets | 0.2592 | 0.4516 | 0.3294 | 31 |
+| | target-abusive | 0.8351 | 0.8828 | 0.8583 | 350 |
+| | non-abusive | 0.9047 | 0.8123 | 0.856 | 421 |
+| | accuracy | | | 0.8291 | 802 |
+| | macro avg | 0.6663 | 0.7156 | **0.6812** | 802 |
+| | weighted avg | 0.8494 | 0.8291 | 0.8367 | 802 |
 | **mt5-base-wikinewssum-all-languages (微调epoch30)** | | | | | |
-| | unidentified-targets | 0.4347 | 0.3225 | 0.3703 | 317 |
-| | target-abusive | 0.8031 | 0.8742 | 0.8372 | 3497 |
-| | non-abusive | 0.8793 | 0.8313 | 0.8547 | 4206 |
-| | accuracy | | | 0.8304 | 8020 |
-| | macro avg | 0.7057 | 0.676 | 0.6874 | 8020 |
-| | weighted avg | 0.8289 | 0.8304 | 0.8283 | 8020 |
+| | unidentified-targets | 0.4347 | 0.3225 | 0.3703 | 31 |
+| | target-abusive | 0.8031 | 0.8742 | 0.8372 | 350 |
+| | non-abusive | 0.8793 | 0.8313 | 0.8547 | 421 |
+| | accuracy | | | 0.8304 | 802 |
+| | macro avg | 0.7057 | 0.676 | **0.6874** | 802 |
+| | weighted avg | 0.8289 | 0.8304 | 0.8283 | 802 |
 | **multilingual-e5-base (微调epoch10)** | | | | | |
-| | unidentified-targets | 0.5882 | 0.3225 | 0.4166 | 317 |
-| | target-abusive | 0.8457 | 0.8771 | 0.8611 | 3497 |
-| | non-abusive | 0.8791 | 0.8812 | 0.8801 | 4206 |
-| | accuracy | | | 0.8578 | 8020 |
-| | macro avg | 0.771 | 0.6936 | 0.7193 | 8020 |
-| | weighted avg | 0.8533 | 0.8578 | 0.8539 | 8020 |
+| | unidentified-targets | 0.5882 | 0.3225 | 0.4166 | 31 |
+| | target-abusive | 0.8457 | 0.8771 | 0.8611 | 350 |
+| | non-abusive | 0.8791 | 0.8812 | 0.8801 | 421 |
+| | accuracy | | | 0.8578 | 802 |
+| | macro avg | 0.771 | 0.6936 | **0.7193** | 802 |
+| | weighted avg | 0.8533 | 0.8578 | 0.8539 | 802 |
 
 </div>
 <div align="center">表8</div>
@@ -432,14 +432,14 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.67 | 0.65 | 0.66 | 350 |
 | | non-abusive | 0.68 | 0.6 | 0.64 | 421 |
 | | accuracy | | | 0.6 | 802 |
-| | macro avg | 0.47 | 0.47 | 0.46 | 802 |
+| | macro avg | 0.47 | 0.47 | **0.46** | 802 |
 | | weighted avg | 0.65 | 0.6 | 0.63 | 802 |
 | **Qwen2-7B-instruct (epoch5, 英文prompt)** | | | | | |
 | | unidentified-targets | 0 | 0 | 0 | 31 |
 | | target-abusive | 0.67 | 0.52 | 0.59 | 350 |
 | | non-abusive | 0.52 | 0.44 | 0.47 | 421 |
 | | accuracy | | | 0.46 | 802 |
-| | macro avg | 0.39 | 0.32 | 0.35 | 802 |
+| | macro avg | 0.39 | 0.32 | **0.35** | 802 |
 | | weighted avg | 0.52 | 0.44 | 0.47 | 802 |
 
 </div>
@@ -454,14 +454,14 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.83 | 0.9 | 0.86 | 350 |
 | | non-abusive | 0.88 | 0.88 | 0.88 | 421 |
 | | accuracy | | | 0.86 | 802 |
-| | macro avg | 0.9 | 0.6 | 0.6 | 802 |
+| | macro avg | 0.9 | 0.6 | **0.6** | 802 |
 | | weighted avg | 0.86 | 0.86 | 0.84 | 802 |
 | **Qwen2-7B-instruct (new_data, epoch10, 中文prompt)** | | | | | |
 | | unidentified-targets | 0.4 | 0.19 | 0.26 | 31 |
 | | target-abusive | 0.84 | 0.87 | 0.86 | 350 |
 | | non-abusive | 0.88 | 0.89 | 0.89 | 421 |
 | | accuracy | | | 0.86 | 802 |
-| | macro avg | 0.71 | 0.65 | 0.67 | 802 |
+| | macro avg | 0.71 | 0.65 | **0.67** | 802 |
 | | weighted avg | 0.85 | 0.86 | 0.85 | 802 |
 
 </div>
@@ -477,14 +477,14 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.85 | 0.89 | 0.87 | 350 |
 | | non-abusive | 0.89 | 0.87 | 0.88 | 421 |
 | | accuracy | | | 0.86 | 802 |
-| | macro avg | 0.73 | 0.7 | 0.72 | 802 |
+| | macro avg | 0.73 | 0.7 | **0.72** | 802 |
 | | weighted avg | 0.86 | 0.86 | 0.86 | 802 |
 | **Qwen2.5-14B (new_data, epoch20, 英文prompt)** | | | | | |
 | | unidentified-targets | 0.39 | 0.42 | 0.41 | 31 |
 | | target-abusive | 0.85 | 0.84 | 0.84 | 350 |
 | | non-abusive | 0.86 | 0.86 | 0.86 | 421 |
 | | accuracy | | | 0.83 | 802 |
-| | macro avg | 0.7 | 0.71 | 0.7 | 802 |
+| | macro avg | 0.7 | 0.71 | **0.7** | 802 |
 | | weighted avg | 0.83 | 0.83 | 0.83 | 802 |
 
 </div>
