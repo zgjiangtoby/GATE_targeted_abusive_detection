@@ -516,4 +516,4 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | sum(add no-target) | ***9609*** |
 <div align="center">表13</div>
 </div>
-其中表12表示targeted-abusive中各类标签的数量，所有类加起来一共是3497条数据，对应在target-detection任务重targeted-abusive这个标签的数量。表13表示target-detection任务中各类标签的数量，一共有8020条数据，其中targeted-abusive3497条数据，unidentified-targets317条数据，non-abusive4206条数据，其次还有1589条no-target（不含@的文本）数据（目前没用上），所以数据加起来目前一共是9609条。
+其中表12表示targeted-abusive中各类标签的数量，所有类加起来一共是3497条数据，对应在target-detection任务中targeted-abusive这个标签的数量。表13表示target-detection任务中各类标签的数量，一共有8020条数据，其中targeted-abusive3497条数据，unidentified-targets317条数据，non-abusive4206条数据，其次还有1589条no-target（不含@的文本）数据（目前没用上），所以数据加起来目前一共是9609条。
