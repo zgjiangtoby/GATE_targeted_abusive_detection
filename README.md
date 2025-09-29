@@ -496,10 +496,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 # 数据集
 我们统计了目前微调及few-shot用到的最新数据集，具体数据如表12、表13所示。
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-
-<div style="flex: 1;">
-
+<div style="display: inline-block; width: 48%; vertical-align: top;">
 | Label | Count |
 |-------|-------|
 | death_threat | 172 |
@@ -517,11 +514,9 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | sum | ***3497*** |
 
 <div align="center">表12</div>
-
 </div>
 
-<div style="flex: 1;">
-
+<div style="display: inline-block; width: 48%; vertical-align: top;">
 | Label | Count |
 |-------|-------|
 | targeted-abusive | 3497 |
@@ -532,8 +527,5 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | sum(add no-target) | ***9609*** |
 
 <div align="center">表13</div>
-
-</div>
-
 </div>
 其中表12表示targeted-abusive中各类标签的数量，所有类加起来一共是3497条数据，对应在target-detection任务重targeted-abusive这个标签的数量。表13表示target-detection任务中各类标签的数量，一共有8020条数据，其中targeted-abusive3497条数据，unidentified-targets317条数据，non-abusive4206条数据，其次还有1589条no-target（不含@的文本）数据（目前没用上），所以数据加起来目前一共是9609条。
