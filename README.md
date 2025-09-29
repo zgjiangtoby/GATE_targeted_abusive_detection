@@ -500,7 +500,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
   
 | Category | death_threat | sexual_assault | sexual_explicit | physical_harm | radiation_of_threats | attacks_on_credibility | misogynistic | homophobic | religious | political_sectarian | racist | general | sum |
 |----------|--------------|----------------|-----------------|---------------|---------------------|----------------------|--------------|------------|-----------|-------------------|--------|---------|-----|
-| Count | 172 | 46 | 148 | 40 | 86 | 1033 | 111 | 25 | 37 | 99 | 131 | 1569 | 3497 |
+| Count    | 172          | 46             | 148             | 40            | 86                  | 1033                 | 111          | 25         | 37        | 99                | 131    | 1569    | 3497 |
 
 <div align="center">表12</div>
 </div>
