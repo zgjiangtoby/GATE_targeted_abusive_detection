@@ -490,3 +490,44 @@ Currently a professor of professional practice and distinguished fellow at Colum
 </div>
 <div align="center">表11</div>
 如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
+
+--------
+2025/09/29
+
+# 数据集
+我们统计了目前微调及few-shot用到的最新数据集，具体数据如表12、表13所示。
+<div align="center">
+  
+| Label | Count |
+|-------|-------|
+| death_threat | 172 |
+| sexual_assault | 46 |
+| sexual_explicit | 148 |
+| physical_harm | 40 |
+| radiation_of_threats | 86 |
+| attacks_on_credibility | 1033 |
+| misogynistic | 111 |
+| homophobic | 25 |
+| religious | 37 |
+| political_sectarian | 99 |
+| racist | 131 |
+| general | 1569 |
+| sum | ***3497*** |
+
+</div>
+<div align="center">表12</div>
+
+<div align="center">
+  
+| Label | Count |
+|-------|-------|
+| targeted-abusive | 3497 |
+| unidentified-targets | 317 |
+| non-abusive | 4206 |
+| sum(target-detection) | ***8020*** |
+| no-target (不含@) | 1589 |
+| sum(add no-target) | ***9609*** |
+
+</div>
+<div align="center">表13</div>
+其中表12表示targeted-abusive中各类标签的数量，所有类加起来一共是3497条数据，对应在target-detection任务重targeted-abusive这个标签的数量。表13表示target-detection任务中各类标签的数量，一共有8020条数据，其中targeted-abusive3497条数据，unidentified-targets317条数据，non-abusive4206条数据，其次还有1589条no-target（不含@的文本）数据（目前没用上），所以数据加起来目前一共是9609条。
