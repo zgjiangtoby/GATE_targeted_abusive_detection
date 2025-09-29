@@ -498,9 +498,9 @@ Currently a professor of professional practice and distinguished fellow at Colum
 我们统计了目前微调及few-shot用到的最新数据集，具体数据如表12、表13所示。
 <div align="center">
   
-| Category | death_threat | sexual_assault | sexual_explicit | physical_harm | radiation_of_threats | attacks_on_credibility | misogynistic | homophobic | religious | political_sectarian | racist | general | sum |
-|----------|--------------|----------------|-----------------|---------------|---------------------|----------------------|--------------|------------|-----------|-------------------|--------|---------|-----|
-| Count    | 172          | 46             | 148             | 40            | 86                  | 1033                 | 111          | 25         | 37        | 99                | 131    | 1569    | 3497 |
+|Label|death_threat|sexual_assault|sexual_explicit|physical_harm|radiation_of_threats|attacks_on_credibility|misogynistic|homophobic|religious|political_sectarian|racist|general|sum|
+|-----|------------|--------------|---------------|-------------|--------------------|----------------------|------------|----------|---------|-------------------|------|-------|---|
+| Count    | 172   | 46           | 148           | 40          | 86                 | 1033                 | 111        | 25       | 37      | 99                | 131  | 1569  |***3497***|
 <div align="center">表12</div>
 </div>
 
