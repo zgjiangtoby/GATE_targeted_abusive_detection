@@ -497,6 +497,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 # 数据集
 我们统计了目前微调及few-shot用到的最新数据集，具体数据如表12、表13所示。
 <div style="display: inline-block; width: 48%; vertical-align: top;">
+  
 | Label | Count |
 |-------|-------|
 | death_threat | 172 |
@@ -517,6 +518,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 </div>
 
 <div style="display: inline-block; width: 48%; vertical-align: top;">
+  
 | Label | Count |
 |-------|-------|
 | targeted-abusive | 3497 |
