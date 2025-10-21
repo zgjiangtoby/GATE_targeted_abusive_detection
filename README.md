@@ -520,6 +520,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 --------
 2025/10/21
+
 我们修改好了代码（之前跑的模型，没有评估，直接用跑完后最后一个模型进行预测），在Qwen2.514B上进行了实验，得到最新结果，实验结果如表14所示，f1分数达到0.73，有了些微提升。
 <div align="center">
   
@@ -535,4 +536,4 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 </div>
 <div align="center">表14</div>
-如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
+
