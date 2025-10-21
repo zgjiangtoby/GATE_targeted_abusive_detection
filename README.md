@@ -517,3 +517,22 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表13</div>
 </div>
 其中表12表示targeted-abusive中各类标签的数量，所有类加起来一共是3497条数据，对应在target-detection任务中targeted-abusive这个标签的数量。表13表示target-detection任务中各类标签的数量，一共有8020条数据，其中targeted-abusive3497条数据，unidentified-targets317条数据，non-abusive4206条数据，其次还有1589条no-target（不含@的文本）数据（目前没用上），所以数据加起来目前一共是9609条。
+
+--------
+2025/10/21
+我们修改好了代码（之前跑的模型，没有评估，直接用跑完后最后一个模型进行预测），在Qwen2.514B上进行了实验，得到最新结果，实验结果如表14所示，f1分数达到0.73，有了些微提升。
+<div align="center">
+  
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Qwen2.5-14B (new_data, epoch20_best)** | | | | | |
+| | unidentified-targets | 0.71 | 0.32 | 0.44 | 31 |
+| | target-abusive | 0.81 | 0.93 | 0.86 | 350 |
+| | non-abusive | 0.91 | 0.84 | 0.87 | 421 |
+| | accuracy | | | 0.86 | 802 |
+| | macro avg | 0.81 | 0.7 | 0.73 | 802 |
+| | weighted avg | 0.86 | 0.86 | 0.85 | 802 |
+
+</div>
+<div align="center">表14</div>
+如表11所示，当epoch为10的时候，实验结果达到了最好，f1分数达到了0.72，对比之前最好效果的小模型有了些微提升。
