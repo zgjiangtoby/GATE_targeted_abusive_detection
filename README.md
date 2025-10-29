@@ -531,9 +531,29 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.81 | 0.93 | 0.86 | 350 |
 | | non-abusive | 0.91 | 0.84 | 0.87 | 421 |
 | | accuracy | | | 0.86 | 802 |
-| | macro avg | 0.81 | 0.7 | 0.73 | 802 |
+| | macro avg | 0.81 | 0.7 | ***0.73*** | 802 |
 | | weighted avg | 0.86 | 0.86 | 0.85 | 802 |
 
 </div>
 <div align="center">表14</div>
+
+--------
+2025/10/29
+
+我们继续在Phi-4上进行实验，实验结果如表15所示，f1分数只达到0.71。
+<div align="center">
+  
+| Model | Class | precision | recall | f1-score | support |
+|-------|-------|-----------|--------|----------|---------|
+| **Phi-4 (new_data, epoch20_best)** | | | | | |
+| | unidentified-targets | 0.53 | 0.29 | 0.38 | 31 |
+| | target-abusive | 0.84 | 0.89 | 0.87 | 350 |
+| | non-abusive | 0.90 | 0.88 | 0.89 | 421 |
+| | accuracy | | | 0.86 | 802 |
+| | macro avg | 0.75 | 0.69 | ***0.7***1 | 802 |
+| | weighted avg | 0.86 | 0.86 | 0.86 | 802 |
+
+</div>
+<div align="center">表15</div>
+
 
