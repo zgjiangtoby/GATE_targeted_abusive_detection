@@ -550,7 +550,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | | target-abusive | 0.84 | 0.89 | 0.87 | 350 |
 | | non-abusive | 0.90 | 0.88 | 0.89 | 421 |
 | | accuracy | | | 0.86 | 802 |
-| | macro avg | 0.75 | 0.69 | ***0.7***1 | 802 |
+| | macro avg | 0.75 | 0.69 | ***0.71*** | 802 |
 | | weighted avg | 0.86 | 0.86 | 0.86 | 802 |
 
 </div>
