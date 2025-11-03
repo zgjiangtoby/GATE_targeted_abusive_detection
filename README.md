@@ -557,3 +557,31 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表15</div>
 
 
+--------
+2025/11/03
+
+# 数据集
+经过观点词的二次标注，我们进行了一些纠正（删除了一些重复数据，修改了一些标签），我们统计了最新数据集，如表16、17所示。
+<div align="center">
+  
+|Label|death_threat|sexual_assault|sexual_explicit|physical_harm|radiation_of_threats|attacks_on_credibility|misogynistic|homophobic|religious|political_sectarian|racist|general|sum|
+|-----|------------|--------------|---------------|-------------|--------------------|----------------------|------------|----------|---------|-------------------|------|-------|---|
+| Count    | 135   | 35           | 128           | 36          | 37                 | 1030                 | 133        | 41       | 29      | 94                | 132  | 1437  |***3267***|
+<div align="center">表16</div>
+</div>
+
+<div align="center">
+  
+| Label | Count |
+|-------|-------|
+| targeted-abusive | 3267 |
+| unidentified-targets | 324 |
+| non-abusive | 4206 |
+| sum(target-detection) | ***7797*** |
+| no-target (不含@) | 1589 |
+| sum(add no-target) | ***9386*** |
+<div align="center">表17</div>
+</div>
+
+
+
