@@ -591,22 +591,28 @@ Currently a professor of professional practice and distinguished fellow at Colum
 
 <div align="center">
   
-| Model | Config | Col1 | Col2 | Col3 | Col4 |
-|-------|--------|------|------|------|------|
-| **multilingual-e5-base**<br>max_length=128 batch_size=16<br>metric_for_best_model="loc_f1_macro"<br>learning_rate=2e-5 num_train_epochs=20<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | | | | | |
-| | epoch_30 | 0.8535 | 0.7449 | 0.4957 | 0.6360 |
-| | epoch_30 3e-5 | 0.8380 | 0.6860 | 0.4277 | 0.4863 |
-| | batch_8 | 0.8419 | 0.7117 | 0.4317 | 0.5030 |
-| | batch_32 | 0.8432 | 0.7144 | 0.4644 | 0.4841 |
-| | max_length=512 | 0.8393 | 0.7084 | 0.5630 | 0.5216 |
-| | l_r=3e-5 | 0.8406 | 0.7265 | 0.4866 | 0.5441 |
-| | l_r=1e-5 | 0.8265 | 0.6797 | 0.4405 | 0.4880 |
-| | loss = 1.5 * tri_loss + 0.8 * fine_loss + 0.8 * loc_loss | 0.8419 | 0.7015 | 0.4535 | 0.4841 |
-| | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8368 | 0.6793 | 0.4901 | 0.7130 |
-| | loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8458 | 0.7425 | 0.4413 | 0.6634 |
-| | epoch_30 metric_for_best_model="fine_f1_macro" | 0.8303 | 0.6985 | 0.464 | 0.4893 |
-| | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8445 | 0.7047 | 0.4563 | 0.4857 |
-| | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8316 | 0.6833 | 0.4909 | 0.7219 |
+# multilingual-e5-base
+
+**Base Config:**  
+max_length=128, batch_size=16, metric_for_best_model="loc_f1_macro"  
+learning_rate=2e-5, num_train_epochs=20  
+loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
+
+| Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
+|--------|--------------|--------------|---------------|--------------|
+| epoch_30 | 0.8535 | 0.7449 | 0.4957 | 0.6360 |
+| epoch_30 3e-5 | 0.8380 | 0.6860 | 0.4277 | 0.4863 |
+| batch_8 | 0.8419 | 0.7117 | 0.4317 | 0.5030 |
+| batch_32 | 0.8432 | 0.7144 | 0.4644 | 0.4841 |
+| max_length=512 | 0.8393 | 0.7084 | 0.5630 | 0.5216 |
+| l_r=3e-5 | 0.8406 | 0.7265 | 0.4866 | 0.5441 |
+| l_r=1e-5 | 0.8265 | 0.6797 | 0.4405 | 0.4880 |
+| loss = 1.5 * tri_loss + 0.8 * fine_loss + 0.8 * loc_loss | 0.8419 | 0.7015 | 0.4535 | 0.4841 |
+| epoch_30 metric_for_best_model="loc_f1_macro" | 0.8368 | 0.6793 | 0.4901 | 0.7130 |
+| loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8458 | 0.7425 | 0.4413 | 0.6634 |
+| epoch_30 metric_for_best_model="fine_f1_macro" | 0.8303 | 0.6985 | 0.4644 | 0.4893 |
+| epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8445 | 0.7047 | 0.4563 | 0.4857 |
+| epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8316 | 0.6833 | 0.4909 | 0.7219 |
 <div align="center">表18</div>
 </div>
 
@@ -619,7 +625,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 该三个改进的实验结果如表19所示。
 <div align="center">
   
-# multilingual-e5-base
+# Model (multilingual-e5-base)
 
 ## Conditional_Fine
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -627,7 +633,6 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | epoch_30 | 0.8213 | 0.6712 | 0.4790 | 0.7511 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8535 | 0.7346 | 0.4450 | 0.7738 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8342 | 0.7133 | 0.4688 | 0.7651 |
-| loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | | | | |
 
 ## Conditional_Fine_v2
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -635,7 +640,6 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | epoch_30 | 0.8406 | 0.7162 | 0.5097 | 0.7821 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8213 | 0.6812 | 0.4055 | 0.7382 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8329 | 0.6926 | 0.4811 | 0.7737 |
-| loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | | | | |
 
 ## Conditional_Fine_v3
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -643,7 +647,6 @@ Currently a professor of professional practice and distinguished fellow at Colum
 | epoch_30 | 0.8239 | 0.6731 | 0.4811 | 0.7774 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8303 | 0.7038 | 0.432 | 0.7018 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8419 | 0.7151 | 0.5487 | 0.7772 |
-| loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | | | | |
 | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8380 | 0.7288 | 0.4540 | 0.7710 |
 <div align="center">表19</div>
 </div>
