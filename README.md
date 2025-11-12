@@ -586,7 +586,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 --------
 2025/11/12
 # 多任务实验
-得到最新的数据集后，我们进行了多任务实验。模型以共享编码器为基础（如 multilingual-e5-base），在其输出语义表示上分别接入三个任务头：任务一（Tri-class Classification）：判断文本是否为仇恨言论及是否针对特定目标，共分三类——针对目标的仇恨言论（targeted-abusive）、非针对目标的仇恨言论（unidentified-targets）和非仇恨言论（non-abusive）；任务二（Fine-grained Classification）：针对已被判定为仇恨言论的文本，进一步识别其仇恨类型，包含12类细粒度标签，如“攻击信誉（attacks_on_credibility）”、“性别歧视（misogynistic）”、“种族歧视（racist）”等；任务三（Phrase-level Localization）：定位文本中具体的仇恨表达短语，即判断哪些词或短语体现了仇恨倾向，从而实现模型输出的可解释性。三个任务共享同一编码器表示，以联合优化的方式进行训练。总损失函数为：Ltotal​=αLtri​+βLfine​+γLloc​,其中，α,β,γ为任务权重，实验中分别设定为 1.2、1.0 和 1.0。
+得到最新的数据集后，我们进行了多任务实验。模型以共享编码器为基础（ multilingual-e5-base），在其输出语义表示上分别接入三个任务头：任务一（Tri-class Classification）：判断文本是否为仇恨言论及是否针对特定目标，共分三类；任务二（Fine-grained Classification）：针对已被判定为仇恨言论的文本，进一步识别其仇恨类型，包含12类细粒度标签；任务三（Phrase-level Localization）：定位文本中具体的仇恨表达短语，即判断哪些词或短语体现了仇恨倾向，从而实现模型输出的可解释性。三个任务共享同一编码器表示，以联合优化的方式进行训练。总损失函数为：Ltotal​=αLtri​+βLfine​+γLloc​,其中，α,β,γ为任务权重，实验中分别设定为 1.2、1.0 和 1.0。
 我们进行了一些实验，在实验中更改了一些参数以确定不同参数对实验结果的影响。实验结果如表18所示，其中，表中第一行为基本参数，后续实验为更改一个或者两个参数的实验结果。
 
 <div align="center">
@@ -618,15 +618,8 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 </div>
 
 在多任务实验的基础上，我们后续进行了三项改进的实验，改进方案共分为三个阶段，分别为：
-改进一：基于硬条件的细分类（Hard Conditional Fine）；改进二：基于软条件的细分类（Soft Conditional Fine）；改进三：细分类引导的短语定位（Conditional Localization）。
-改进一：基于硬条件的细分类（Hard Conditional Fine），在原始多任务模型中，三分类（是否为仇恨言论）、细分类（仇恨类型）与短语定位任务并行学习，任务之间相互独立，导致细分类模块在大量“非仇恨样本”上仍被强制训练，产生梯度噪声，影响模型稳定性。为此，改进一在训练阶段引入硬条件约束机制（Hard Conditional Masking）：仅当三分类任务判定结果为“针对特定目标的仇恨言论”时，细分类模块才参与前向计算与反向更新；若样本被判定为非仇恨言论，则跳过细分类任务的损失计算。该机制有效过滤了无关样本对细分类学习的干扰，使模型在细粒度类别上聚焦于真正的仇恨实例，从而提升了细分类精度。此阶段的改进主要在结构层面建立了任务间的依赖关系，实现了“从三分类到细分类”的初步条件约束。
-改进二：基于软条件的细分类（Soft Conditional Fine），改进一虽能减少噪声，但其条件控制是离散的（Hard gating），当三分类误判时，细分类模块将完全失去梯度信号，导致信息断层。因此，改进二进一步引入连续可微的软条件调制机制（Soft Conditional Gating）。具体地，将三分类输出的概率分布 Ptri​ 输入至一层门控线性变换，生成动态门控向量 g=σ(WPtri)，并对句子级特征进行加权调制：hfine=henc⊙g从而实现对细分类输入特征的动态调整。
-改进三：细分类引导的短语定位（Conditional Localization），前两步改进主要聚焦于句子级任务（tri → fine）的关联建模，而仇恨短语定位任务（loc）仍然独立于上层语义信息，难以根据不同类型的仇恨言论在文本中准确定位关键短语。为此，改进三提出细分类引导的定位机制（Fine-conditioned Localization）：将细分类任务的输出概率 PfineP_{fine}Pfine​ 经线性投射映射至隐空间向量 c=tanh(Wloc​Pfine​)，再与每个 token 的隐藏状态进行逐元素交互：hloc,i=henc,i⊙c该机制实现了从细分类到词级定位的语义调制（semantic modulation），使模型在进行短语标注时能够感知当前文本的仇恨类型，从而提升词级识别的针对性与解释性。
-
-该三个改进的实验结果如表19所示。
+改进一：基于硬条件的细分类（Hard Conditional Fine），在原始多任务模型中，三分类（是否为仇恨言论）、细分类（仇恨类型）与短语定位任务并行学习，任务之间相互独立，导致细分类模块在大量“非仇恨样本”上仍被强制训练，产生梯度噪声，影响模型稳定性。为此，改进一在训练阶段引入硬条件约束机制（Hard Conditional Masking）：仅当三分类任务判定结果为“针对特定目标的仇恨言论”时，细分类模块才参与前向计算与反向更新；若样本被判定为非仇恨言论，则跳过细分类任务的损失计算。该机制有效过滤了无关样本对细分类学习的干扰，使模型在细粒度类别上聚焦于真正的仇恨实例，从而提升了细分类精度。此阶段的改进主要在结构层面建立了任务间的依赖关系，实现了“从三分类到细分类”的初步条件约束。实验结果如表19所示。
 <div align="center">
-  
-# Model (multilingual-e5-base)
 
 ## Conditional_Fine
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -634,6 +627,11 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 | 0.8213 | 0.6712 | ***0.4790*** | 0.7511 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | ***0.8535*** | ***0.7346*** | 0.4450 | ***0.7738*** |
 | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8342 | 0.7133 | 0.4688 | 0.7651 |
+<div align="center">表19</div>
+</div>
+
+改进二：基于软条件的细分类（Soft Conditional Fine），改进一虽能减少噪声，但其条件控制是离散的（Hard gating），当三分类误判时，细分类模块将完全失去梯度信号，导致信息断层。因此，改进二进一步引入连续可微的软条件调制机制（Soft Conditional Gating）。具体地，将三分类输出的概率分布 Ptri​ 输入至一层门控线性变换，生成动态门控向量 g=σ(WPtri)，并对句子级特征进行加权调制：hfine=henc⊙g从而实现对细分类输入特征的动态调整。实验结果如表20所示。
+<div align="center">
 
 ## Conditional_Fine_v2
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -641,6 +639,11 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 | ***0.8406*** | ***0.7162*** | ***0.5097*** | ***0.7821*** |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8213 | 0.6812 | 0.4055 | 0.7382 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | 0.8329 | 0.6926 | 0.4811 | 0.7737 |
+<div align="center">表20</div>
+</div>
+
+改进三：细分类引导的短语定位（Conditional Localization），前两步改进主要聚焦于句子级任务（tri → fine）的关联建模，而仇恨短语定位任务（loc）仍然独立于上层语义信息，难以根据不同类型的仇恨言论在文本中准确定位关键短语。为此，改进三提出细分类引导的定位机制（Fine-conditioned Localization）：将细分类任务的输出概率Pfine​ 经线性投射映射至隐空间向量 c=tanh(Wloc​Pfine​)，再与每个 token 的隐藏状态进行逐元素交互：hloc,i=henc,i⊙c该机制实现了从细分类到词级定位的语义调制（semantic modulation），使模型在进行短语标注时能够感知当前文本的仇恨类型，从而提升词级识别的针对性与解释性。实验结果如表21所示。
+<div align="center">
 
 ## Conditional_Fine_v3
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
@@ -649,8 +652,9 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8303 | 0.7038 | 0.432 | 0.7018 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | ***0.8419*** | 0.7151 | ***0.5487*** | 0.7772 |
 | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8380 | ***0.7288*** | 0.4540 | 0.7710 |
-<div align="center">表19</div>
+<div align="center">表21</div>
 </div>
+以上多任务实验均在模型multilingual-e5-base上进行。
 
 
 
