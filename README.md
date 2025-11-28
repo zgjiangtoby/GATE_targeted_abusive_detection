@@ -705,7 +705,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 <div align="center">表23</div>
 </div>
 
-我们上述的任务1和任务3都是在全部的数据上进行训练的，而tri_label不为targeted-abusive的数据hate_phrases字段是没有内容的，所以为了验证tri_label为non-abusive和unidentified-targets的数据加入训练是否会影响任务3的仇恨短语定位效果，我们尝试任务3也仅仅使用tri_label为targeted-abusive的数据进行训练，实验各参数最佳结果如表24所示（该实验仅在模型multilingual-e5-base上进行）。
+我们上述的任务1和任务3都是在全部的数据上进行训练的，而tri_label不为targeted-abusive的数据hate_phrases字段是没有内容的（可在上述数据格式示例表中查看），所以为了验证tri_label为non-abusive和unidentified-targets的数据加入训练是否会影响任务3的仇恨短语定位效果，我们尝试任务3也仅仅使用tri_label为targeted-abusive的数据进行训练，实验各参数最佳结果如表24所示（该实验仅在模型multilingual-e5-base上进行）。
 <div align="center">
   
 | Model (multilingual-e5-base) | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
