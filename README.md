@@ -583,6 +583,17 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表17</div>
 </div>
 
+最新数据集格式如下表所示，分别提供三分类中每一类的数据格式示例：
+<div align="center">
+  
+| id                  | text                                                                                                                                                                                                 | target           | tri_label            | fine_label             | hate_phrases                |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|----------------------|------------------------|----------------------------|
+| 1462968709106966528 | @vpsison What will happen to d Nobel Peace Prize of lie fabricator @mariaressa?<br>D more d prize lacks substance. If it can be cook, it's tasteless. F she wants to sell it in a scrapyard, it's no use, it doesn't cost a single centavo.<br>She best use it like a hammer & hit her head with it. | @mariaressa      | targeted-abusive     | attacks_on_credibility | [{"content": "lie fabricator", "char_pos": "52-65"}] |
+| 1760715859813683332 | @yulia_navalnaya Путин чудовище!                                                                                                                                                                      | @yulia_navalnaya | unidentified-targets | None                   | [] |
+| 1384096210152161285 | @mariaressa @taylor_owen thats good to know                                                                                                                                                           | @mariaressa      | non-abusive          | None                   | [] |
+<div align="center">数据格式示例表</div>
+</div>
+
 
 --------
 2025/11/12
@@ -679,7 +690,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 <div align="center">表22</div>
 </div>
 
-随后我们尝试了在其他小模型上训练的结果，一共再使用了三个小模型，其中XLM-RoBERTa-large跑了三个改进策略，其他两个没跑，各模型的各参数的最佳实验结果如表23所示。
+随后我们尝试了在其他小模型上训练的结果，一共再使用了三个小模型，其中XLM-RoBERTa-large跑了三个改进策略，其他两个没跑，各模型的各参数的最佳实验结果如表23所示（其中，V1、2、3分别代表改进1、2、3，V1_3代表改进1与改进3相结合）。
 <div align="center">
   
 | Model | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
