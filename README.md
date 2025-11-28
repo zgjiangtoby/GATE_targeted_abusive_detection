@@ -626,6 +626,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 metric_for_best_model="fine_f1_macro" | 0.8303 | 0.6985 | 0.4644 | 0.4893 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8445 | 0.7047 | 0.4563 | 0.4857 |
 | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8316 | 0.6833 | 0.4909 | ***0.7219*** |
+| Single_Task(Baseline) | 0.8329 | 0.6972 | 0.4874 | 0.7055 |
 | Best | ***0.8535*** | ***0.7449*** | ***0.5630*** | ***0.7219*** |
 <div align="center">表18</div>
 </div>
@@ -705,7 +706,9 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 <div align="center">表23</div>
 </div>
 由表中数据可知，各模型的效果相差不大，最好的实验结果分数浮动较小。
+
 --------
+
 我们上述的任务1和任务3都是在全部的数据上进行训练的，而tri_label不为targeted-abusive的数据hate_phrases字段是没有内容的（可在上述数据格式示例表中查看），所以为了验证tri_label为non-abusive和unidentified-targets的数据加入训练是否会影响任务3的仇恨短语定位效果，我们尝试任务3也仅仅使用tri_label为targeted-abusive的数据进行训练，实验各参数最佳结果如表24所示（该实验仅在模型multilingual-e5-base上进行）。
 <div align="center">
   
