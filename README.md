@@ -583,6 +583,7 @@ Currently a professor of professional practice and distinguished fellow at Colum
 <div align="center">表17</div>
 </div>
 
+
 --------
 2025/11/12
 # 多任务实验
@@ -614,6 +615,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 metric_for_best_model="fine_f1_macro" | 0.8303 | 0.6985 | 0.4644 | 0.4893 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8445 | 0.7047 | 0.4563 | 0.4857 |
 | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8316 | 0.6833 | 0.4909 | ***0.7219*** |
+| Best | ***0.8535*** | ***0.7449*** | ***0.5630*** | ***0.7219*** |
 <div align="center">表18</div>
 </div>
 
@@ -621,12 +623,14 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 改进一：基于硬条件的细分类（Hard Conditional Fine），在原始多任务模型中，三分类（是否为仇恨言论）、细分类（仇恨类型）与短语定位任务并行学习，任务之间相互独立，导致细分类模块在大量“非仇恨样本”上仍被强制训练，产生梯度噪声，影响模型稳定性。为此，改进一在训练阶段引入硬条件约束机制（Hard Conditional Masking）：仅当三分类任务判定结果为“针对特定目标的仇恨言论”时，细分类模块才参与前向计算与反向更新；若样本被判定为非仇恨言论，则跳过细分类任务的损失计算。该机制有效过滤了无关样本对细分类学习的干扰，使模型在细粒度类别上聚焦于真正的仇恨实例，从而提升了细分类精度。此阶段的改进主要在结构层面建立了任务间的依赖关系，实现了“从三分类到细分类”的初步条件约束。实验结果如表19所示。
 <div align="center">
 
-## Conditional_Fine
+## Conditional_Fine_v1
 | Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
 |--------|--------------|--------------|---------------|--------------|
-| epoch_30 | 0.8213 | 0.6712 | ***0.4790*** | 0.7511 |
+| epoch_30 | 0.8213 | 0.6712 | 0.4790 | 0.7511 |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | ***0.8535*** | ***0.7346*** | 0.4450 | ***0.7738*** |
-| epoch_30 metric_for_best_model="loc_f1_macro" | 0.8342 | 0.7133 | 0.4688 | 0.7651 |
+| epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8342 | 0.7133 | 0.4688 | 0.7651 |
+| epoch_20_512  metric_for_best_model="fine_f1_macro"<br>loss = 1.0 * tri_loss + 1.2 * fine_loss + 1.0 * loc_loss  | 0.8290 | 0.7077 | ***0.5152*** | 0.7157 |
+| Best | ***0.8535*** | ***0.7346*** | ***0.5152*** | ***0.7738*** |
 <div align="center">表19</div>
 </div>
 
@@ -638,7 +642,8 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 |--------|--------------|--------------|---------------|--------------|
 | epoch_30 | ***0.8406*** | ***0.7162*** | ***0.5097*** | ***0.7821*** |
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8213 | 0.6812 | 0.4055 | 0.7382 |
-| epoch_30 metric_for_best_model="loc_f1_macro" | 0.8329 | 0.6926 | 0.4811 | 0.7737 |
+| epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8329 | 0.6926 | 0.4811 | 0.7737 |
+| Best | ***0.8406*** | ***0.7162*** | ***0.5097*** | ***0.7821*** |
 <div align="center">表20</div>
 </div>
 
@@ -652,9 +657,56 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8303 | 0.7038 | 0.432 | 0.7018 |
 | epoch_30 metric_for_best_model="loc_f1_macro" | ***0.8419*** | 0.7151 | ***0.5487*** | 0.7772 |
 | epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8380 | ***0.7288*** | 0.4540 | 0.7710 |
+| Best | ***0.8419*** | ***0.7288*** | ***0.5487*** | ***0.7774*** |
 <div align="center">表21</div>
 </div>
 以上多任务实验均在模型multilingual-e5-base上进行。
+
+--------
+2025/11/28
+
+上述改进3是在改进2的基础上进行的，而改进1和改进2又互相冲突，所以我们尝试将改进1和改进3结合起来，实验结果如表22所示。
+<div align="center">
+
+## Conditional_Fine_V1_3
+| Config | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
+|--------|--------------|--------------|---------------|--------------|
+| epoch_30 | 0.8290 | 0.6816 | 0.4786 | 0.7730 |
+| epoch_30 loss = 1.0 * tri_loss + 1.0 * fine_loss + 1.2 * loc_loss | 0.8252 | 0.6866 | ***0.5169*** | 0.7651 |
+| epoch_30 metric_for_best_model="loc_f1_macro" | ***0.8316*** | 0.6981 | 0.4535 | 0.7734 |
+| epoch_30 metric_for_best_model="loc_f1_macro"<br>loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss | 0.8316 | ***0.6981*** | 0.4535 | ***0.7734*** |
+| Best | ***0.8316*** | ***0.6981*** | ***0.5169*** | ***0.7734*** |
+<div align="center">表22</div>
+</div>
+
+随后我们尝试了在其他小模型上训练的结果，一共再使用了三个小模型，其中XLM-RoBERTa-large跑了三个改进策略，其他两个没跑，各模型的各参数的最佳实验结果如表23所示。
+<div align="center">
+| Model | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
+|-------|--------------|--------------|---------------|--------------|
+| Best(XLM-RoBERTa-large) | 0.8406 | 0.7171 | 0.5752 | 0.6917 |
+| Best_v1(XLM-RoBERTa-large) | 0.8522 | 0.7275 | 0.5319 | 0.7826 |
+| Best_v2(XLM-RoBERTa-large) | 0.8316 | 0.7027 | 0.5438 | 0.7183 |
+| Best_v1_3(XLM-RoBERTa-large) | 0.8445 | 0.7152 | 0.5477 | 0.7772 |
+| Best(mDeBERTa-v3-base) | 0.8458 | 0.7100 | 0.5154 | 0.7761 |
+| Best(deberta-v3-large) | 0.8316 | 0.6853 | 0.4444 | 0.6942 |
+
+<div align="center">表23</div>
+</div>
+
+我们上述的任务1和任务3都是在全部的数据上进行训练的，而tri_label不为targeted-abusive的数据hate_phrases字段是没有内容的，所以为了验证tri_label为non-abusive和unidentified-targets的数据加入训练是否会影响任务3的仇恨短语定位效果，我们尝试任务3也仅仅使用tri_label为targeted-abusive的数据进行训练，实验各参数最佳结果如表24所示（该实验仅在模型multilingual-e5-base上进行）。
+<div align="center">
+| Model (multilingual-e5-base) | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
+|------------------------------|--------------|--------------|---------------|--------------|
+| Best | 0.8406 | 0.7290 | 0.4856 | 0.7312 |
+| Best_v1 | 0.8483 | 0.7381 | 0.5054 | 0.7382 |
+| Best_v2 | 0.8419 | 0.7134 | 0.4682 | 0.7626 |
+| Best_v3 | 0.8355 | 0.7130 | 0.5194 | 0.7446 |
+| Best_v1_3 | 0.8393 | 0.7176 | 0.4798 | 0.7627 |
+
+<div align="center">表24</div>
+</div>
+
+
 
 
 
