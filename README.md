@@ -681,6 +681,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 
 随后我们尝试了在其他小模型上训练的结果，一共再使用了三个小模型，其中XLM-RoBERTa-large跑了三个改进策略，其他两个没跑，各模型的各参数的最佳实验结果如表23所示。
 <div align="center">
+  
 | Model | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
 |-------|--------------|--------------|---------------|--------------|
 | Best(XLM-RoBERTa-large) | 0.8406 | 0.7171 | 0.5752 | 0.6917 |
@@ -695,6 +696,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 
 我们上述的任务1和任务3都是在全部的数据上进行训练的，而tri_label不为targeted-abusive的数据hate_phrases字段是没有内容的，所以为了验证tri_label为non-abusive和unidentified-targets的数据加入训练是否会影响任务3的仇恨短语定位效果，我们尝试任务3也仅仅使用tri_label为targeted-abusive的数据进行训练，实验各参数最佳结果如表24所示（该实验仅在模型multilingual-e5-base上进行）。
 <div align="center">
+  
 | Model (multilingual-e5-base) | tri_accuracy | tri_f1_macro | fine_f1_macro | loc_f1_macro |
 |------------------------------|--------------|--------------|---------------|--------------|
 | Best | 0.8406 | 0.7290 | 0.4856 | 0.7312 |
