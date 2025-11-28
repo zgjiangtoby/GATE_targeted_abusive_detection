@@ -629,6 +629,7 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | Single_Task(Baseline) | 0.8329 | 0.6972 | 0.4874 | 0.7055 |
 | Best | ***0.8535*** | ***0.7449*** | ***0.5630*** | ***0.7219*** |
 <div align="center">表18</div>
+<div align="center">其中，Single_Task(Baseline)代表我们后续进行的三个任务单独训练的基线。Best代表各参数最好结果的整合</div>
 </div>
 
 在多任务实验的基础上，我们后续进行了三项改进的实验，改进方案共分为三个阶段，分别为：
