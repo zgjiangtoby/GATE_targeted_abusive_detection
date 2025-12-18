@@ -702,7 +702,8 @@ loss = 1.2 * tri_loss + 1.0 * fine_loss + 1.0 * loc_loss
 | Best(XLM-RoBERTa-large) | 0.8406 | 0.7171 | 0.5752 | 0.6917 |
 | Best_v1(XLM-RoBERTa-large) | 0.8522 | 0.7275 | 0.5319 | 0.7826 |
 | Best_v2(XLM-RoBERTa-large) | 0.8316 | 0.7027 | 0.5438 | 0.7183 |
-| Best_v1_3(XLM-RoBERTa-large) | 0.8445 | 0.7152 | 0.5477 | 0.7772 |
+| Best_3(XLM-RoBERTa-large) | 0.8445 | 0.7152 | 0.5477 | 0.7772 |
+| Best_v1_3(XLM-RoBERTa-large) | 0.8458 | 0.7100 | 0.5154 | 0.7761 |
 | Best(debert-v3-large) | 0.8329 | 0.6898 | 0.5257 | 0.7376 |
 | Best(mDeBERTa-v3-base) | 0.8316 | 0.6853 | 0.4444 | 0.6942 |
 
